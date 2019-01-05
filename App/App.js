@@ -1,41 +1,90 @@
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import { View, SafeAreaView, ScrollView, Image, BackHandler} from 'react-native';
+import { createDrawerNavigator, DrawerItems } from 'react-navigation';
+import { Icon } from 'native-base';
+import Principal from './src/components/Principal';
+import Presencas from './src/components/Presencas';
+import Notificacoes from './src/components/Notificacoes';
+import Configuracoes from './src/components/Configuracoes';
+import Mapa from './src/components/Mapa';
+import Faq from './src/components/Faq';
+import Programacao from './src/components/Programacao';
+import Contatos from './src/components/Contatos';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+      <AppDrawerNavigator />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+const sair = () => {
+  BackHandler.exitApp();
+};
+
+const CustomDrawerComponent = (props) => (
+  <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ height: 150, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center' }} >
+      <Image source={ require('./assets/imgs/unesp-logo.png')} 
+        style={{ height: 120, width: 120 }} />
+    </View>
+    <ScrollView>
+      <DrawerItems {...props} />
+    </ScrollView>
+  </SafeAreaView>
+);
+
+const AppDrawerNavigator = createDrawerNavigator({
+  Início: Principal,
+  Notificações: Notificacoes,
+  Presenças: Presencas,
+  Compartilhar: {
+    screen: sair,
+    navigationOptions:() => ({
+      drawerIcon: ({ tintColor }) => (
+        <Icon name='share' 
+        type="MaterialIcons"
+        style={{ fontSize: 24, color: tintColor }} />
+      )
+    })
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  Configurações: Configuracoes,
+  Sair: {
+    screen: sair,
+    navigationOptions:() => ({
+      drawerIcon: ({ tintColor }) => (
+        <Icon name='sign-out' 
+        type="Octicons"
+        style={{ fontSize: 24, color: tintColor }} />
+      )
+    })
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  Mapa: {
+    screen: Mapa,
+    navigationOptions: {
+        drawerLabel: () => null
+    }
   },
+  Faq: {
+    screen: Faq,
+    navigationOptions: {
+        drawerLabel: () => null
+    }
+  },
+  Programacao: {
+    screen: Programacao,
+    navigationOptions: {
+        drawerLabel: () => null
+    }
+  },
+  Contatos: {
+    screen: Contatos,
+    navigationOptions: {
+        drawerLabel: () => null
+    }
+  }
+}, {
+  contentComponent: CustomDrawerComponent
 });
+
