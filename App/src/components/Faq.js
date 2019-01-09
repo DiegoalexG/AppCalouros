@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { Header, Left, Right, Icon, Body, Button } from 'native-base';
+import FaqCollapsiblePanel from './FaqCollapsiblePanel';
 
 export default class Faq extends React.Component {
-
   render() {
     return (
       <View style={styles.container} >
@@ -20,6 +20,17 @@ export default class Faq extends React.Component {
         </Header>   
         <Text style={styles.titulo}>FAQ</Text>   
         <View style={styles.corpoView}>
+          <ScrollView style={styles.container}>
+            <FaqCollapsiblePanel titulo="Pergunta 1">
+              <Text>Resposta 1</Text>
+            </FaqCollapsiblePanel>
+            <FaqCollapsiblePanel titulo="Pergunta 2">
+              <Text>Resposta 2</Text>
+            </FaqCollapsiblePanel>
+            <FaqCollapsiblePanel titulo="Pergunta x">
+              <Text>Resposta x</Text>
+            </FaqCollapsiblePanel>
+          </ScrollView>
         </View>
       </View>
     );
