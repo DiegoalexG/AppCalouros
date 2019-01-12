@@ -24,11 +24,11 @@ export default class Faq extends React.Component {
             <FaqCollapsiblePanel titulo="Pergunta 1">
               <Text>Resposta 1</Text>
             </FaqCollapsiblePanel>
-            <FaqCollapsiblePanel titulo="Pergunta 2">
+            <FaqCollapsiblePanel titulo="Pergunta 22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222">
               <Text>Resposta 2</Text>
             </FaqCollapsiblePanel>
-            <FaqCollapsiblePanel titulo="Pergunta x">
-              <Text>Resposta x</Text>
+            <FaqCollapsiblePanel titulo="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
+              <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
             </FaqCollapsiblePanel>
           </ScrollView>
         </View>

@@ -23,8 +23,20 @@ class FaqCollapsiblePanel extends React.Component {
         this.state = {       
             titulo: props.titulo,
             expandido: false,
-            animacao: new Animated.Value(39)
+            animacao: new Animated.Value()
         };
+    }
+
+    setMaxHeight(event) {
+        this.setState({
+            maxHeight: event.nativeEvent.layout.height
+        });
+    }
+
+    setMinHeight(event) {
+        this.setState({
+            minHeight: event.nativeEvent.layout.height
+        });
     }
 
     toggle() {
@@ -46,41 +58,44 @@ class FaqCollapsiblePanel extends React.Component {
         ).start();  
     }
 
-    _setMaxHeight(event) {
-        this.setState({
-            maxHeight: event.nativeEvent.layout.height
-        });
-    }
-
-    _setMinHeight(event) {
-        this.setState({
-            minHeight: event.nativeEvent.layout.height
-        });
-    }
-
     render() {
         let icon = this.icons.down;
-
-        if (this.state.expandido) {
-            icon = this.icons.up;   
-        }
-        return ( 
-            <Animated.View style={[styles.container, { height: this.state.animacao }]} >
-                <View style={styles.tituloContainer} onLayout={this._setMinHeight.bind(this)}>
+        let componente = (
+            <Animated.View style={[styles.container, { height: this.state.animacao }]}>
+                <View style={styles.tituloContainer} onLayout={this.setMinHeight.bind(this)}>
                     <Text style={styles.titulo}>{this.state.titulo}</Text>
                     <TouchableHighlight 
                         style={styles.button} 
                         onPress={this.toggle.bind(this)}
-                        underlayColor="#f1f1f1"
+                        underlayColor='transparent'
                     >
                         <Image style={styles.buttonImage} source={icon} />
                     </TouchableHighlight>
-                </View>               
-                <View style={styles.body} onLayout={this._setMaxHeight.bind(this)}>
-                    {this.props.children}
-                </View>
+                </View>  
             </Animated.View>
         );
+
+        if (this.state.expandido) {
+            icon = this.icons.up;   
+            componente = (
+                <Animated.View style={[styles.container, { height: this.state.animacao }]} >
+                    <View style={styles.tituloContainer} onLayout={this.setMinHeight.bind(this)}>
+                        <Text style={styles.titulo}>{this.state.titulo}</Text>
+                        <TouchableHighlight 
+                            style={styles.button} 
+                            onPress={this.toggle.bind(this)}
+                            underlayColor='transparent'
+                        >
+                            <Image style={styles.buttonImage} source={icon} />
+                        </TouchableHighlight>
+                    </View>               
+                    <View style={styles.body} onLayout={this.setMaxHeight.bind(this)}>
+                        {this.props.children}
+                    </View>
+                </Animated.View>
+            );
+        }
+        return (componente);
     }
 }
 
@@ -100,7 +115,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     button: {
-
+        paddingTop: 10,
+        paddingRight: 10
     },
     buttonImage: {
         width: 20,
