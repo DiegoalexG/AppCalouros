@@ -103,7 +103,8 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
         margin: 10,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        borderRadius: 10
     },
     tituloContainer: {
         flexDirection: 'row'

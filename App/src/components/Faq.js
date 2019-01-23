@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, ImageBackground, Dimensions } from 'react-native';
 import { Header, Left, Right, Icon, Body, Button } from 'native-base';
 import FaqCollapsiblePanel from './FaqCollapsiblePanel';
 
@@ -7,17 +7,20 @@ export default class Faq extends React.Component {
   render() {
     return (
       <View style={styles.container} >
-        <Header style={{ backgroundColor: '#273238' }} >
-          <Left>
-            <Button transparent >
-              <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
-            </Button>
-          </Left>
-          <Body>            
-            <Text style={{ color: '#fff' }}>Semana dos Calouros</Text>
-          </Body>
-          <Right />
-        </Header>   
+        <ImageBackground
+          source={require('../../assets/imgs/bannerSombreado.png')}
+          style={{ width: Dimensions.get('window').width }}
+          imageStyle={{ width: Dimensions.get('window').width }}
+        >
+          <Header style={{ backgroundColor: 'transparent' }} >
+            <Left>
+              <Button transparent >
+                <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
+              </Button>
+            </Left>
+            <Right />
+          </Header>
+        </ImageBackground>
         <Text style={styles.titulo}>FAQ</Text>   
         <View style={styles.corpoView}>
           <ScrollView style={styles.container}>
