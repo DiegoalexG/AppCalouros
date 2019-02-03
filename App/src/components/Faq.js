@@ -1,15 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, ImageBackground, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, ImageBackground, Dimensions, Linking, Image } from 'react-native';
 import { Header, Left, Right, Icon, Body, Button } from 'native-base';
 import FaqCollapsiblePanel from './FaqCollapsiblePanel';
 
+const banner = require('../../assets/imgs/bannerSombreado.png');
+const faq = require('../../assets/imgs/faq.png');
+
 export default class Faq extends React.Component {
+
   render() {
     return (
       <View style={styles.container} >
         <ImageBackground
-          source={require('../../assets/imgs/bannerSombreado.png')}
-          style={{ width: Dimensions.get('window').width }}
+          source={banner}
+          style={[styles.sombra, { width: Dimensions.get('window').width }]}
           imageStyle={{ width: Dimensions.get('window').width }}
         >
           <Header style={{ backgroundColor: 'transparent' }} >
@@ -21,17 +25,55 @@ export default class Faq extends React.Component {
             <Right />
           </Header>
         </ImageBackground>
-        <Text style={styles.titulo}>FAQ</Text>   
         <View style={styles.corpoView}>
           <ScrollView style={styles.container}>
-            <FaqCollapsiblePanel titulo="Pergunta 1">
-              <Text>Resposta 1</Text>
+            <Image source={faq} style={styles.containerImg} />
+            <FaqCollapsiblePanel
+              titulo="☛ O que exatamente é a semana dos calouros?" 
+            >
+              <Text>A primeira semana de aulas da FCT Unesp propõe uma 
+              série de atividades que visam integrar o novo aluno à 
+              faculdade. Através dessas atividades, busca-se apresentar 
+              aos calouros os seus cursos, promover a socialização entre 
+              colegas e explicar como algumas entidades presentes na universidade 
+              funcionam.</Text>
             </FaqCollapsiblePanel>
-            <FaqCollapsiblePanel titulo="Pergunta 22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222">
-              <Text>Resposta 2</Text>
+            <FaqCollapsiblePanel 
+              titulo="☛ Não conheço bem o câmpus, como faço para encontrar o local das próximas atividades?"
+            >
+              <Text>Na aba "Mapa", localizada no menu, você terá acesso ao 
+              mapa de toda a FCT Unesp com pontos de referência e suas 
+              respectivas fotos e descrições.</Text>
             </FaqCollapsiblePanel>
-            <FaqCollapsiblePanel titulo="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
-              <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
+            <FaqCollapsiblePanel titulo="☛ Pergunta">
+              <Text>Resposta</Text>
+            </FaqCollapsiblePanel>
+            <FaqCollapsiblePanel 
+            titulo="☛ A semana dos calouros se encerrou. Devo deletar o aplicativo?"
+            >
+              <Text>Esse ano o aplicativo dos calouros surgiu com diversas 
+              novidades. Agora integrado ao aplicativo temos um feed de 
+              notícias que será atualizado de acordo com pedidos realizados 
+              pelas entidades da universidade. Além disso, adicionamos uma área 
+              chamada "Presenças" na qual você poderá adicionar ou excluir as 
+              matérias que estiver fazendo e poderá marcar suas presenças e faltas, 
+              facilitando o cálculo da porcentagem de presença.</Text>
+            </FaqCollapsiblePanel>
+            <FaqCollapsiblePanel 
+              titulo="☛ Tenho alguma outra dúvida que não foi tratada aqui, com quem posso conversar para tirá-la?"
+            >
+              <Text>No menu temos uma área chamada "Contatos", dedicada a descrever as entidades 
+              presentes na universidade e disponibilizar seus contatos. A partir dessa descrição, 
+              você deverá ser capaz de saber qual poderá solucionar sua dúvida. Caso tenha alguma 
+              dúvida sobre o aplicativo ou queira deixar um feedback, contate nossa empresa 
+              júnior pelo { }
+                <Text 
+                  style={{ color: 'blue' }}
+                  onPress={() => Linking.openURL('https://pt-br.facebook.com/EJComp.UNESP/')}
+                >
+                 Facebook
+                </Text>
+              </Text>
             </FaqCollapsiblePanel>
           </ScrollView>
         </View>
@@ -44,6 +86,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  sombra: {
+    //ios shadow  
+    shadowOffset: {
+      width: 0,
+      height: 10
+    },
+    shadowOpacity: 0.51,
+    shadowRadius: 13.16,
+    //android shadow
+    elevation: 20
+  },
   titulo: {
     fontSize: 28,
     paddingTop: 5,
@@ -51,7 +104,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: 'white',
-    backgroundColor: '#52527a',
+    backgroundColor: '#52527a', 
     //ios shadow  
     shadowOffset: {
       width: 0,
@@ -65,6 +118,12 @@ const styles = StyleSheet.create({
   corpoView: {
     flex: 1,
     backgroundColor: '#d1d1e0'
+  }, 
+  containerImg: {
+    flex: 1,
+    width: Dimensions.get('window').width,
+    height: 180,
+    resizeMode: 'cover'
   }
 });
 

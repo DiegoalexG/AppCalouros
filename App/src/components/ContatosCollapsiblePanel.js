@@ -6,11 +6,12 @@ import {
     Image,
     TouchableHighlight,
     Animated } from 'react-native'; 
+import { Thumbnail } from 'native-base';
 
 const upName = require('../../assets/imgs/upArrow.png');
 const downName = require('../../assets/imgs/downArrow.png');
 
-class FaqCollapsiblePanel extends React.Component {
+class ContatosCollapsiblePanel extends React.Component {
 
     constructor(props) {
         super(props);
@@ -22,9 +23,10 @@ class FaqCollapsiblePanel extends React.Component {
 
         this.state = {       
             titulo: props.titulo,
+            img: props.img,
             expandido: false,
             animacao: new Animated.Value()
-        };
+        };   
     }
 
     setMaxHeight(event) {
@@ -63,6 +65,7 @@ class FaqCollapsiblePanel extends React.Component {
         let componente = (
             <Animated.View style={[styles.container, { height: this.state.animacao }]}>
                 <View style={styles.tituloContainer} onLayout={this.setMinHeight.bind(this)}>
+                    <Thumbnail square large source={this.props.img} style={styles.imagem}/>
                     <Text style={styles.titulo}>{this.state.titulo}</Text>
                     <TouchableHighlight 
                         style={styles.button} 
@@ -80,6 +83,7 @@ class FaqCollapsiblePanel extends React.Component {
             componente = (
                 <Animated.View style={[styles.container, { height: this.state.animacao }]} >
                     <View style={styles.tituloContainer} onLayout={this.setMinHeight.bind(this)}>
+                        <Thumbnail square large source={this.props.img} style={styles.imagem}/>
                         <Text style={styles.titulo}>{this.state.titulo}</Text>
                         <TouchableHighlight 
                             style={styles.button} 
@@ -107,15 +111,24 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     tituloContainer: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+    },
+    imagem: {
+        flex: 1,
+        aspectRatio: 2, 
+        resizeMode: 'contain',
+        margin: 3
     },
     titulo: {
         flex: 1,
         padding: 10,
         color: '#2a2f43',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textAlignVertical: 'center',
+        textAlign: 'center'
     },
     button: {
+        justifyContent: 'center',
         paddingTop: 10,
         paddingRight: 10
     },
@@ -130,4 +143,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default FaqCollapsiblePanel;
+export default ContatosCollapsiblePanel;
