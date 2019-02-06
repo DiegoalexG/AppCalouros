@@ -87,14 +87,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   sombra: {
-    //ios shadow  
-    shadowOffset: {
-      width: 0,
-      height: 10
-    },
-    shadowOpacity: 0.51,
-    shadowRadius: 13.16,
-    //android shadow
     elevation: 20
   },
   titulo: {
@@ -105,14 +97,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'white',
     backgroundColor: '#52527a', 
-    //ios shadow  
-    shadowOffset: {
-      width: 0,
-      height: 10
-    },
-    shadowOpacity: 0.51,
-    shadowRadius: 13.16,
-    //android shadow
     elevation: 20
   },
   corpoView: {

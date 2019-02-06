@@ -19,5 +19,8 @@
     "babel-preset-expo": "^5.0.0",
     "eslint-config-rallycoding": "^3.2.0"
   },
+  "rnpm":{
+    "assets": ["./assets/fonts/"]
+  },
   "private": true
 }
