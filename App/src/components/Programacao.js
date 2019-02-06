@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, ImageBackground, Dimensions, View, ScrollView, Image } from 'react-native';
 import { Header, Left, Right, Icon, Button, Picker, Form, Item } from 'native-base';
-import { Font } from 'expo';
+import { Font, LinearGradient } from 'expo';
+import ProgramacaoHorario from './ProgramacaoHorario';
 
 const banner = require('../../assets/imgs/bannerSombreado.png');
 const programacao = require('../../assets/imgs/programacao.png');
@@ -19,6 +20,9 @@ export default class Programacao extends React.Component {
     Font.loadAsync({
       'theboldfont': require('../../assets/fonts/theboldfont.ttf'),
     });
+    Font.loadAsync({
+      'open-sans': require('../../assets/fonts/OpenSans-Regular.ttf'),
+    });
   }
 
   render() {
@@ -31,39 +35,30 @@ export default class Programacao extends React.Component {
         componenteDia = (
           <View>
             <Text style={styles.titulo}>Segunda-feira</Text>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>08:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Palestra com o diretor e fala dos estudantes | Boas vindas.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Ginásio de esportes.
-                </Text>
-              </View>
-            </View>
-            <View style={[styles.bloco, { backgroundColor: '#f2f2f2' }]}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>14:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Concentração para os stands.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Discente I.
-                </Text>
-              </View>
-            </View>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>16:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Sunset gramado.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Gramado do museu.
-                </Text>
-              </View>
-            </View>
+            <ProgramacaoHorario 
+              hora="08:00" 
+              atividade="Palestra com o diretor e fala dos estudantes | Boas vindas." 
+              local="Local: Ginásio de Esportes."
+              corPrim='#08C1FE'
+              corSec='#2065CA'
+              isGrey='n'
+            />
+            <ProgramacaoHorario 
+              hora="14:00" 
+              atividade="Concentração para os stands." 
+              local="Local: Discente I." 
+              corPrim='#2065CA'
+              corSec='#2846B9'
+              isGrey='s'
+            />
+            <ProgramacaoHorario 
+              hora="16:00" 
+              atividade="Sunset gramado." 
+              local="Local: Gramado do museu." 
+              corPrim='#2846B9'
+              corSec='#3027A8'
+              isGrey='n'
+            />
           </View>
         );
         break;
@@ -71,72 +66,54 @@ export default class Programacao extends React.Component {
         componenteDia = (
           <View>
             <Text style={styles.titulo}>Terça-feira</Text>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>08:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Aula inaugural.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: será anunciado.
-                </Text>
-              </View>
-            </View>
-            <View style={[styles.bloco, { backgroundColor: '#f2f2f2' }]}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>10:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Filme - D.A.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Biblioteca.
-                </Text>
-              </View>
-            </View>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>14:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Reconhecimento do câmpus (Cacau + Moradia).
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Discente I.
-                </Text>
-              </View>
-            </View>
-            <View style={[styles.bloco, { backgroundColor: '#f2f2f2' }]}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>16:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Oficina de criatividade (Ópera Krios).
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Sala do rato (Ateliê).
-                </Text>
-              </View>
-            </View>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>18:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Yoga.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Gramado do museu.
-                </Text>
-              </View>
-            </View>
-            <View style={[styles.bloco, { backgroundColor: '#f2f2f2' }]}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>20:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Histórico do movimento estudantil - D.A.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: D.A.
-                </Text>
-              </View>
-            </View>
+            <ProgramacaoHorario 
+              hora="08:00" 
+              atividade="Aula inaugural." 
+              local="Local: será anunciado."
+              corPrim='#08C1FE'
+              corSec='#10A2EC'
+              isGrey='n'
+            />
+            <ProgramacaoHorario 
+              hora="10:00" 
+              atividade="Filme - D.A." 
+              local="Local: Biblioteca."
+              corPrim='#10A2EC'
+              corSec='#2065CA'
+              isGrey='s'
+            />
+            <ProgramacaoHorario 
+              hora="14:00" 
+              atividade="Reconhecimento do câmpus (Cacau + Moradia)." 
+              local="Local: Discente I."
+              corPrim='#2065CA'
+              corSec='#2846B9'
+              isGrey='n'
+            />
+            <ProgramacaoHorario 
+              hora="16:00" 
+              atividade="Oficina de criatividade (Ópera Krios)."
+              local="Local: Sala do rato (Ateliê)."
+              corPrim='#2846B9'
+              corSec='#3027A8'
+              isGrey='s'
+            />
+            <ProgramacaoHorario 
+              hora="18:00" 
+              atividade="Yoga."
+              local="Local: Gramado do museu."
+              corPrim='#3027A8'
+              corSec='#380997'
+              isGrey='n'
+            />
+            <ProgramacaoHorario 
+              hora="20:00" 
+              atividade="Histórico do movimento estudantil - D.A."
+              local="Local: D.A."
+              corPrim='#380997'
+              corSec='#320490'
+              isGrey='s'
+            />
           </View>
         );
         break;
@@ -144,61 +121,46 @@ export default class Programacao extends React.Component {
         componenteDia = (
           <View>
             <Text style={styles.titulo}>Quarta-feira</Text>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>08:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Desafio do calouro - D.A.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Ginásio de esportes.
-                </Text>
-              </View>
-            </View>
-            <View style={[styles.bloco, { backgroundColor: '#f2f2f2' }]}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>14:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Integra calouro - Atlética
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Ginásio de esportes
-                </Text>
-              </View>
-            </View>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>14:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Palestra saúde mental - Direção.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Anfiteatro 3.
-                </Text>
-              </View>
-            </View>
-            <View style={[styles.bloco, { backgroundColor: '#f2f2f2' }]}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>17:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Assembleia geral - D.A.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Anfiteatro 1.
-                </Text>
-              </View>
-            </View>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>20:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Palestra saúde mental - Direção.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Anfiteatro 1.
-                </Text>
-              </View>
-            </View>
+            <ProgramacaoHorario 
+              hora="08:00" 
+              atividade="Desafio do calouro - D.A."
+              local="Local: Ginásio de esportes."
+              corPrim='#08C1FE'
+              corSec='#2065CA'
+              isGrey='n'
+            />
+            <ProgramacaoHorario 
+              hora="14:00" 
+              atividade="Integra calouro - Atlética."
+              local="Local: Ginásio de esportes."
+              corPrim='#2065CA'
+              corSec='#2065CA'
+              isGrey='s'
+            />
+            <ProgramacaoHorario 
+              hora="14:00" 
+              atividade="Palestra saúde mental - Direção."
+              local="Local: Anfiteatro 3."
+              corPrim='#2065CA'
+              corSec='#2C37B0'
+              isGrey='n'
+            />
+            <ProgramacaoHorario 
+              hora="17:00" 
+              atividade="Assembleia geral - D.A."
+              local="Local: Anfiteatro 1."
+              corPrim='#2C37B0'
+              corSec='#380997'
+              isGrey='s'
+            />
+            <ProgramacaoHorario 
+              hora="20:00" 
+              atividade="Palestra saúde mental - Direção."
+              local="Local: Anfiteatro 1."
+              corPrim='#380997'
+              corSec='#320490'
+              isGrey='n'
+            />
           </View>
         );
         break;
@@ -206,94 +168,70 @@ export default class Programacao extends React.Component {
         componenteDia = (
           <View>
             <Text style={styles.titulo}>Quinta-feira</Text>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>08:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Saída de onibus para doação de sangue - Direção.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Direção.
-                </Text>
-              </View>
-            </View>
-            <View style={[styles.bloco, { backgroundColor: '#f2f2f2' }]}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>08:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Oficina de maracatu - D.A.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Direção.
-                </Text>
-              </View>
-            </View>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>14:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Integra calouro - Atlética
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Educa.
-                </Text>
-              </View>
-            </View>
-            <View style={[styles.bloco, { backgroundColor: '#f2f2f2' }]}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>14:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Dança - Performance Jr
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Educa.
-                </Text>
-              </View>
-            </View>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>14:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Rotina de treino Pegasus - Pegasus
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Educa.
-                </Text>
-              </View>
-            </View>
-            <View style={[styles.bloco, { backgroundColor: '#f2f2f2' }]}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>14:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Ensaio Bateria Furiosa - Bateria Furiosa.
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Educa.
-                </Text>
-              </View>
-            </View>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>17:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Roda de capoeira - (Grupo de capoeira).
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Educa.
-                </Text>
-              </View>
-            </View>
-            <View style={[styles.bloco, { backgroundColor: '#f2f2f2' }]}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>19:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Atividade coletivo mãos negras - (Coletivo).
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Anfiteatro 1.
-                </Text>
-              </View>
-            </View>
+            <ProgramacaoHorario 
+              hora="08:00" 
+              atividade="Saída de onibus para doação de sangue - Direção."
+              local="Local: Direção."
+              corPrim='#08C1FE'
+              corSec='#08C1FE'
+              isGrey='n'
+            />
+            <ProgramacaoHorario 
+              hora="08:00" 
+              atividade="Oficina de maracatu - D.A."
+              local="Local: Direção."
+              corPrim='#08C1FE'
+              corSec='#2065CA'
+              isGrey='s'
+            />
+            <ProgramacaoHorario 
+              hora="14:00" 
+              atividade="Integra calouro - Atlética."
+              local="Local: Educa."
+              corPrim='#2065CA'
+              corSec='#2065CA'
+              isGrey='n'
+            />
+            <ProgramacaoHorario 
+              hora="14:00" 
+              atividade="Dança - Performance Jr."
+              local="Local: Educa."
+              corPrim='#2065CA'
+              corSec='#2065CA'
+              isGrey='s'
+            />
+            <ProgramacaoHorario 
+              hora="14:00" 
+              atividade="Rotina de treino Pegasus - Pegasus."
+              local="Local: Educa."
+              corPrim='#2065CA'
+              corSec='#2065CA'
+              isGrey='n'
+            />
+            <ProgramacaoHorario 
+              hora="14:00" 
+              atividade="Ensaio Bateria Furiosa - Bateria Furiosa."
+              local="Local: Educa."
+              corPrim='#2065CA'
+              corSec='#2C37B0'
+              isGrey='s'
+            />
+            <ProgramacaoHorario 
+              hora="17:00" 
+              atividade="Roda de capoeira - (Grupo de capoeira)."
+              local="Local: Educa."
+              corPrim='#2C37B0'
+              corSec='#34189F'
+              isGrey='n'
+            />
+            <ProgramacaoHorario 
+              hora="19:00" 
+              atividade="Atividade coletivo mãos negras - (Coletivo)."
+              local="Local: Anfiteatro 1."
+              corPrim='#34189F'
+              corSec='#320490'
+              isGrey='s'
+            />
           </View>
         );
         break;
@@ -301,50 +239,38 @@ export default class Programacao extends React.Component {
         componenteDia = (
           <View>
             <Text style={styles.titulo}>Sexta-feira</Text>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>08:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Atividade coletivo mãos negras - (Coletivo).
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Anfiteatro 1.
-                </Text>
-              </View>
-            </View>
-            <View style={[styles.bloco, { backgroundColor: '#f2f2f2' }]}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>14:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Show da química - (Trupe)
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Biblioteca.
-                </Text>
-              </View>
-            </View>
-            <View style={styles.bloco}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>14:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Discussão: impactos sociais, econômicos e ambientais do desastre de Brumadinho - MG - (CAEA + GEOAMB).
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Anfiteatro 2.
-                </Text>
-              </View>
-            </View>
-            <View style={[styles.bloco, { backgroundColor: '#f2f2f2' }]}>
-              <Text style={[styles.blocoText, styles.blocoTextHora]}>14:00</Text>
-              <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-                <Text style={styles.blocoTextAtiv}>
-                  Oficina papel reciclável - (Coletivo cooperação).
-                </Text>
-                <Text style={styles.blocoTextAtiv}>
-                  Local: Sala do rato (Ateliê).
-                </Text>
-              </View>
-            </View>
+            <ProgramacaoHorario 
+              hora="08:00" 
+              atividade="Atividade coletivo mãos negras - (Coletivo)."
+              local="Local: Anfiteatro 1."
+              corPrim='#08C1FE'
+              corSec='#2065CA'
+              isGrey='n'
+            />
+            <ProgramacaoHorario 
+              hora="14:00" 
+              atividade="Show da química - (Trupe)."
+              local="Local: Biblioteca."
+              corPrim='#2065CA'
+              corSec='#2065CA'
+              isGrey='s'
+            />
+            <ProgramacaoHorario 
+              hora="14:00" 
+              atividade="Discussão: impactos sociais, econômicos e ambientais do desastre de Brumadinho - MG - (CAEA + GEOAMB)."
+              local="Local: Anfiteatro 2."
+              corPrim='#2065CA'
+              corSec='#2065CA'
+              isGrey='n'
+            />
+            <ProgramacaoHorario 
+              hora="14:00" 
+              atividade="Oficina papel reciclável - (Coletivo cooperação)."
+              local="Local: Sala do rato (Ateliê)."
+              corPrim='#2065CA'
+              corSec='#2846B9'
+              isGrey='s'
+            />
           </View>
         );
         break;
@@ -365,7 +291,7 @@ export default class Programacao extends React.Component {
             <Right />
           </Header>
         </ImageBackground>
-        <View style={styles.corpoView}>
+        <View style={styles.container}>
           <ScrollView>
             <Image source={programacao} style={styles.containerImg} />
             <Form style={{ alignItems: 'center' }}>
@@ -404,9 +330,6 @@ const styles = StyleSheet.create({
   sombra: {
     elevation: 20
   },
-  corpoView: {
-    flex: 1,
-  },
   titulo: {
     textAlign: 'center',
     borderWidth: 2,
@@ -425,27 +348,5 @@ const styles = StyleSheet.create({
     width: 300,
     backgroundColor: '#DADDE2',
     borderRadius: 20
-  },
-  bloco: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-  blocoText: {
-    height: 100,
-    fontSize: 16,
-    textAlign: 'center',
-    color: '#fdf6ec',
-    borderBottomWidth: 2,
-    borderColor: '#a2a2a2'
-  },
-  blocoTextHora: {
-    flex: 1, 
-    color: 'black', 
-    textAlignVertical: 'center', 
-  },
-  blocoTextAtiv: {
-    fontSize: 14,
-    textAlign: 'center',
-    color: 'black',
   }
 });
