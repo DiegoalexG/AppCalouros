@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, ImageBackground, Dimensions, View, ScrollView, Image } from 'react-native';
 import { Header, Left, Right, Icon, Button, Picker, Form, Item } from 'native-base';
-import { Font, LinearGradient } from 'expo';
 import ProgramacaoHorario from './ProgramacaoHorario';
 
 const banner = require('../../assets/imgs/bannerSombreado.png');
@@ -14,15 +13,6 @@ export default class Programacao extends React.Component {
 
   mudarDia = (dia) => {
     this.setState({ dia: dia });
-  }
-
-  componentDidMount() {
-    Font.loadAsync({
-      'theboldfont': require('../../assets/fonts/theboldfont.ttf'),
-    });
-    Font.loadAsync({
-      'open-sans': require('../../assets/fonts/OpenSans-Regular.ttf'),
-    });
   }
 
   render() {
@@ -59,10 +49,11 @@ export default class Programacao extends React.Component {
               corSec='#3027A8'
               isGrey='n'
             />
-          </View>
+            <View style={{ height: 5, backgroundColor: '#3027A8' }} />
+          </View>  
         );
         break;
-      case ('terca'):
+      case ('terca'): 
         componenteDia = (
           <View>
             <Text style={styles.titulo}>Terça-feira</Text>
@@ -114,6 +105,7 @@ export default class Programacao extends React.Component {
               corSec='#320490'
               isGrey='s'
             />
+            <View style={{ height: 5, backgroundColor: '#320490' }} />
           </View>
         );
         break;
@@ -161,6 +153,7 @@ export default class Programacao extends React.Component {
               corSec='#320490'
               isGrey='n'
             />
+            <View style={{ height: 5, backgroundColor: '#320490' }} />
           </View>
         );
         break;
@@ -232,6 +225,7 @@ export default class Programacao extends React.Component {
               corSec='#320490'
               isGrey='s'
             />
+            <View style={{ height: 5, backgroundColor: '#320490' }} />
           </View>
         );
         break;
@@ -271,6 +265,7 @@ export default class Programacao extends React.Component {
               corSec='#2846B9'
               isGrey='s'
             />
+            <View style={{ height: 5, backgroundColor: '#2846B9' }} />
           </View>
         );
         break;
@@ -297,15 +292,16 @@ export default class Programacao extends React.Component {
             <Form style={{ alignItems: 'center' }}>
               <Item picker style={styles.picker}>
                 <Picker
+                  style={{ color: 'white' }}
                   mode="dropdown" 
                   selectedValue={this.state.dia} 
                   onValueChange={this.mudarDia}>
                   <Picker.Item label="Selecione um dia da semana" value="" />
-                  <Picker.Item label="segunda-feira" value="segunda" />
-                  <Picker.Item label="terça-feira" value="terca" />
-                  <Picker.Item label="quarta-feira" value="quarta" />
-                  <Picker.Item label="quinta-feira" value="quinta" />
-                  <Picker.Item label="sexta-feira" value="sexta" />
+                  <Picker.Item label="Segunda-feira" value="segunda" />
+                  <Picker.Item label="Terça-feira" value="terca" />
+                  <Picker.Item label="Quarta-feira" value="quarta" />
+                  <Picker.Item label="Quinta-feira" value="quinta" />
+                  <Picker.Item label="Sexta-feira" value="sexta" />
                 </Picker>
               </Item>
             </Form>
@@ -332,21 +328,22 @@ const styles = StyleSheet.create({
   },
   titulo: {
     textAlign: 'center',
-    borderWidth: 2,
-    borderColor: 'black',
     fontFamily: 'theboldfont',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     fontSize: 30,
-    backgroundColor: 'black',
+    backgroundColor: '#08C1FE',
     color: 'white'
   },
   picker: {
     margin: 20,
     marginLeft: 25,
-    marginBottom: 0,
+    marginBottom: 10,
     alignItems: 'center',
+    textAlign: 'center',
     height: 50, 
     width: 300,
-    backgroundColor: '#DADDE2',
+    backgroundColor: '#7551c0',
     borderRadius: 20
   }
 });

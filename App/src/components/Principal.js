@@ -1,7 +1,8 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Text, View, StatusBar } from 'react-native';
-import { Container, Header, Left, Right, Icon, Body, Button, Title } from 'native-base';
+import { Container, Header, Left, Right, Icon, Body, Button } from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
+import { Font } from 'expo';
 
 export default class Principal extends React.Component {
 
@@ -12,7 +13,12 @@ export default class Principal extends React.Component {
   }
 
   componentDidMount() {
-       StatusBar.setHidden(true);
+    Font.loadAsync({
+      'theboldfont': require('../../assets/fonts/theboldfont.ttf'),
+      'open-sans': require('../../assets/fonts/OpenSans-Regular.ttf'),
+      'open-sans-bold': require('../../assets/fonts/OpenSans-Bold.ttf')
+    });
+    StatusBar.setHidden(true);
   }
 
   render() {

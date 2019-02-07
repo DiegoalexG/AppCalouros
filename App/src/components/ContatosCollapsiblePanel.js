@@ -1,17 +1,11 @@
 import React from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    Image,
-    TouchableHighlight,
-    Animated } from 'react-native'; 
+import { StyleSheet, Text, View, Image, TouchableHighlight, Animated } from 'react-native'; 
 import { Thumbnail } from 'native-base';
 
 const upName = require('../../assets/imgs/upArrow.png');
 const downName = require('../../assets/imgs/downArrow.png');
 
-class ContatosCollapsiblePanel extends React.Component {
+export default class ContatosCollapsiblePanel extends React.Component {
 
     constructor(props) {
         super(props);
@@ -22,8 +16,6 @@ class ContatosCollapsiblePanel extends React.Component {
         };
 
         this.state = {       
-            titulo: props.titulo,
-            img: props.img,
             expandido: false,
             animacao: new Animated.Value()
         };   
@@ -64,9 +56,9 @@ class ContatosCollapsiblePanel extends React.Component {
         let icon = this.icons.down;
         let componente = (
             <Animated.View style={[styles.container, { height: this.state.animacao }]}>
-                <View style={styles.tituloContainer} onLayout={this.setMinHeight.bind(this)}>
-                    <Thumbnail square large source={this.props.img} style={styles.imagem}/>
-                    <Text style={styles.titulo}>{this.state.titulo}</Text>
+                <View style={{ flexDirection: 'row' }} onLayout={this.setMinHeight.bind(this)}>
+                    <Thumbnail square large source={this.props.img} style={styles.imagem} />
+                    <Text style={styles.textoTitulo}>{this.props.titulo}</Text>
                     <TouchableHighlight 
                         style={styles.button} 
                         onPress={this.toggle.bind(this)}
@@ -82,9 +74,9 @@ class ContatosCollapsiblePanel extends React.Component {
             icon = this.icons.up;   
             componente = (
                 <Animated.View style={[styles.container, { height: this.state.animacao }]} >
-                    <View style={styles.tituloContainer} onLayout={this.setMinHeight.bind(this)}>
-                        <Thumbnail square large source={this.props.img} style={styles.imagem}/>
-                        <Text style={styles.titulo}>{this.state.titulo}</Text>
+                    <View style={{ flexDirection: 'row' }} onLayout={this.setMinHeight.bind(this)}>
+                        <Thumbnail square large source={this.props.img} style={styles.imagem} />
+                        <Text style={styles.textoTitulo}>{this.props.titulo}</Text>
                         <TouchableHighlight 
                             style={styles.button} 
                             onPress={this.toggle.bind(this)}
@@ -93,8 +85,8 @@ class ContatosCollapsiblePanel extends React.Component {
                             <Image style={styles.buttonImage} source={icon} />
                         </TouchableHighlight>
                     </View>               
-                    <View style={styles.body} onLayout={this.setMaxHeight.bind(this)}>
-                        {this.props.children}
+                    <View onLayout={this.setMaxHeight.bind(this)}>
+                        <Text style={styles.textoDescricao}>{this.props.descricao}</Text>
                     </View>
                 </Animated.View>
             );
@@ -106,26 +98,31 @@ class ContatosCollapsiblePanel extends React.Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
-        margin: 10,
-        overflow: 'hidden',
-        borderRadius: 10
-    },
-    tituloContainer: {
-        flexDirection: 'row',
+        borderBottomWidth: 2,
+        borderColor: '#a2a2a2',
+        overflow: 'hidden'
     },
     imagem: {
         flex: 1,
         aspectRatio: 2, 
         resizeMode: 'contain',
-        margin: 3
+        margin: 10,
+        marginLeft: 0
     },
-    titulo: {
+    textoTitulo: {
         flex: 1,
         padding: 10,
         color: '#2a2f43',
-        fontWeight: 'bold',
+        fontFamily: 'open-sans-bold',
         textAlignVertical: 'center',
         textAlign: 'center'
+    },
+    textoDescricao: {
+        borderTopWidth: 2,
+        borderColor: '#a2a2a2',
+        padding: 10,
+        color: '#2a2f43',
+        fontFamily: 'open-sans',
     },
     button: {
         justifyContent: 'center',
@@ -135,12 +132,5 @@ const styles = StyleSheet.create({
     buttonImage: {
         width: 20,
         height: 15
-    },
-    body: {
-        borderTopWidth: 2,
-        borderColor: 'black',
-        padding: 10
     }
 });
-
-export default ContatosCollapsiblePanel;

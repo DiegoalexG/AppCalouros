@@ -1,17 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Font, LinearGradient } from 'expo';
+import { LinearGradient } from 'expo';
 
 export default class ProgramacaoHorario extends React.Component {
-
-  componentDidMount() {
-    Font.loadAsync({
-      'theboldfont': require('../../assets/fonts/theboldfont.ttf'),
-    });
-    Font.loadAsync({
-      'open-sans': require('../../assets/fonts/OpenSans-Regular.ttf'),
-    });
-  }
 
   render() {
     let background = 'white';
@@ -26,13 +17,12 @@ export default class ProgramacaoHorario extends React.Component {
             <LinearGradient style={{ height: 100, width: 5 }} colors={cores} />
             <Text style={[styles.blocoText, styles.blocoTextHora]}>{this.props.hora}</Text>
           </View>
-          <View style={[styles.blocoText, { flex: 3, justifyContent: 'space-around' }]}>
-            <Text style={styles.blocoTextAtiv}>
-              {this.props.atividade}
-            </Text>
-            <Text style={styles.blocoTextAtiv}>
-              {this.props.local}
-            </Text>
+          <View style={{ flex: 3, flexDirection: 'row' }}>
+            <View style={[styles.blocoText, { flex: 1, justifyContent: 'space-around' }]}>
+              <Text style={styles.blocoTextAtiv}>{this.props.atividade}</Text>
+              <Text style={styles.blocoTextLocal}>{this.props.local}</Text>
+            </View>
+            <LinearGradient style={{ height: 100, width: 5 }} colors={cores} />
           </View>
         </View>
       </View>
@@ -60,8 +50,14 @@ const styles = StyleSheet.create({
   },
   blocoTextAtiv: {
     fontSize: 14,
-    fontFamily: 'open-sans',
+    fontFamily: 'open-sans-bold',
     textAlign: 'center',
     color: 'black',
+  },
+  blocoTextLocal: {
+    fontSize: 14,
+    fontFamily: 'open-sans',
+    textAlign: 'center',
+    color: '#667C82'
   }
 });
