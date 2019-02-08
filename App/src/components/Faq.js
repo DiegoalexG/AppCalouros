@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, ImageBackground, Dimensions, Linking, Image } from 'react-native';
-import { Header, Left, Right, Icon, Body, Button } from 'native-base';
+import { Header, Left, Right, Icon, Button } from 'native-base';
 import FaqCollapsiblePanel from './FaqCollapsiblePanel';
 
 const banner = require('../../assets/imgs/bannerSombreado.png');
@@ -13,7 +13,7 @@ export default class Faq extends React.Component {
       <View style={styles.container} >
         <ImageBackground
           source={banner}
-          style={[styles.sombra, { width: Dimensions.get('window').width }]}
+          style={{ elevation: 20, width: Dimensions.get('window').width }}
           imageStyle={{ width: Dimensions.get('window').width }}
         >
           <Header style={{ backgroundColor: 'transparent' }} >
@@ -29,7 +29,7 @@ export default class Faq extends React.Component {
           <ScrollView style={styles.container}>
             <Image source={faq} style={styles.containerImg} />
             <FaqCollapsiblePanel
-              titulo="☛ O que exatamente é a semana dos calouros?" 
+              titulo="O que exatamente é a semana dos calouros?" 
             >
               <Text>A primeira semana de aulas da FCT Unesp propõe uma 
               série de atividades que visam integrar o novo aluno à 
@@ -39,17 +39,17 @@ export default class Faq extends React.Component {
               funcionam.</Text>
             </FaqCollapsiblePanel>
             <FaqCollapsiblePanel 
-              titulo="☛ Não conheço bem o câmpus, como faço para encontrar o local das próximas atividades?"
+              titulo="Não conheço bem o câmpus, como faço para encontrar o local das próximas atividades?"
             >
               <Text>Na aba "Mapa", localizada no menu, você terá acesso ao 
               mapa de toda a FCT Unesp com pontos de referência e suas 
               respectivas fotos e descrições.</Text>
             </FaqCollapsiblePanel>
-            <FaqCollapsiblePanel titulo="☛ Pergunta">
+            <FaqCollapsiblePanel titulo="Pergunta">
               <Text>Resposta</Text>
             </FaqCollapsiblePanel>
             <FaqCollapsiblePanel 
-            titulo="☛ A semana dos calouros se encerrou. Devo deletar o aplicativo?"
+            titulo="A semana dos calouros se encerrou. Devo deletar o aplicativo?"
             >
               <Text>Esse ano o aplicativo dos calouros surgiu com diversas 
               novidades. Agora integrado ao aplicativo temos um feed de 
@@ -60,7 +60,7 @@ export default class Faq extends React.Component {
               facilitando o cálculo da porcentagem de presença.</Text>
             </FaqCollapsiblePanel>
             <FaqCollapsiblePanel 
-              titulo="☛ Tenho alguma outra dúvida que não foi tratada aqui, com quem posso conversar para tirá-la?"
+              titulo="Tenho alguma outra dúvida que não foi tratada aqui, com quem posso conversar para tirá-la?"
             >
               <Text>No menu temos uma área chamada "Contatos", dedicada a descrever as entidades 
               presentes na universidade e disponibilizar seus contatos. A partir dessa descrição, 
@@ -86,9 +86,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  sombra: {
-    elevation: 20
-  },
   titulo: {
     fontSize: 28,
     paddingTop: 5,
@@ -101,7 +98,7 @@ const styles = StyleSheet.create({
   },
   corpoView: {
     flex: 1,
-    backgroundColor: '#d1d1e0'
+    backgroundColor: 'white'
   }, 
   containerImg: {
     flex: 1,

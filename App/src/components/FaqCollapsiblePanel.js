@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    Image,
-    TouchableHighlight,
-    Animated } from 'react-native'; 
+import { StyleSheet, Text, View, Image, TouchableHighlight, Animated } from 'react-native'; 
+import { LinearGradient } from 'expo'
 
 const upName = require('../../assets/imgs/upArrow.png');
 const downName = require('../../assets/imgs/downArrow.png');
@@ -21,7 +16,6 @@ class FaqCollapsiblePanel extends React.Component {
         };
 
         this.state = {       
-            titulo: props.titulo,
             expandido: false,
             animacao: new Animated.Value()
         };
@@ -60,10 +54,12 @@ class FaqCollapsiblePanel extends React.Component {
 
     render() {
         let icon = this.icons.down;
+        let colors = ['#08C1FE', '#4a50c8'];
         let componente = (
             <Animated.View style={[styles.container, { height: this.state.animacao }]}>
-                <View style={styles.tituloContainer} onLayout={this.setMinHeight.bind(this)}>
-                    <Text style={styles.titulo}>{this.state.titulo}</Text>
+                <View style={{ flexDirection: 'row' }} onLayout={this.setMinHeight.bind(this)}>
+                    <LinearGradient colors={colors} style={{ width: 5 }} />
+                    <Text style={styles.pergunta}>{this.props.titulo}</Text>
                     <TouchableHighlight 
                         style={styles.button} 
                         onPress={this.toggle.bind(this)}
@@ -76,11 +72,13 @@ class FaqCollapsiblePanel extends React.Component {
         );
 
         if (this.state.expandido) {
-            icon = this.icons.up;   
+            icon = this.icons.up;
+            colors = ['#FF9E98', '#BD0E2B'];
             componente = (
                 <Animated.View style={[styles.container, { height: this.state.animacao }]} >
-                    <View style={styles.tituloContainer} onLayout={this.setMinHeight.bind(this)}>
-                        <Text style={styles.titulo}>{this.state.titulo}</Text>
+                    <View style={{ flexDirection: 'row' }} onLayout={this.setMinHeight.bind(this)}>
+                        <LinearGradient colors={colors} style={{ width: 5 }} />
+                        <Text style={styles.pergunta}>{this.props.titulo}</Text>
                         <TouchableHighlight 
                             style={styles.button} 
                             onPress={this.toggle.bind(this)}
@@ -89,7 +87,7 @@ class FaqCollapsiblePanel extends React.Component {
                             <Image style={styles.buttonImage} source={icon} />
                         </TouchableHighlight>
                     </View>               
-                    <View style={styles.body} onLayout={this.setMaxHeight.bind(this)}>
+                    <View style={styles.resposta} onLayout={this.setMaxHeight.bind(this)}>
                         {this.props.children}
                     </View>
                 </Animated.View>
@@ -104,16 +102,21 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         margin: 10,
         overflow: 'hidden',
-        borderRadius: 10
+        borderRadius: 10,
+        elevation: 5
     },
-    tituloContainer: {
-        flexDirection: 'row'
-    },
-    titulo: {
+    pergunta: {
         flex: 1,
         padding: 10,
         color: '#2a2f43',
-        fontWeight: 'bold'
+        fontFamily: 'open-sans-bold'
+    },
+    resposta: {
+        borderTopWidth: 2,
+        borderColor: '#a2a2a2',
+        padding: 10,
+        fontFamily: 'open-sans',
+        fontSize: 18
     },
     button: {
         paddingTop: 10,
@@ -122,12 +125,7 @@ const styles = StyleSheet.create({
     buttonImage: {
         width: 20,
         height: 15
-    },
-    body: {
-        borderTopWidth: 2,
-        borderColor: 'black',
-        padding: 10
-    }
+    }   
 });
 
 export default FaqCollapsiblePanel;
