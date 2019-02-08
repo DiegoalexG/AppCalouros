@@ -193,7 +193,7 @@ export default class Presencas extends React.Component {
            
         </View>
       );
-    } else if (this.state.disciplinas == null) {
+    } /*else if (this.state.disciplinas == null) {
       return (
         <View style={styles.container} >
           <Header style={{ backgroundColor: '#273238' }} >
@@ -212,7 +212,7 @@ export default class Presencas extends React.Component {
           </Content>
         </View>
       );
-    } 
+    } */
 
     return (
       <View style={styles.container} >

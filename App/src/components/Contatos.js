@@ -32,21 +32,29 @@ export default class Contatos extends React.Component {
               titulo="Trupe Quimioatividade"
               img={require('../../assets/imgs/teste1.jpg')}
               descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." 
+              email="teste1@testemail.com"
+              telefone="40028922"
             />
             <ContatosCollapsiblePanel 
               titulo="Ópera Krios"
               img={require('../../assets/imgs/teste2.png')}
               descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." 
+              email="teste2@testemail.com"
+              telefone="40028922"
             />
             <ContatosCollapsiblePanel 
               titulo="CACiC ''Alan Turing'' - Centro Acadêmico de Ciência da Computação" 
               img={require('../../assets/imgs/teste3.png')}
               descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." 
+              email="teste3@testemail.com"
+              telefone="40028922"
             />
             <ContatosCollapsiblePanel 
               titulo="CACAU - Centro Acadêmico do Curso de Arquitetura e Urbanismo"
               img={require('../../assets/imgs/teste4.png')}
               descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." 
+              email="teste4@testemail.com"
+              telefone="40028922"
             />
           </ScrollView>
         </View>
