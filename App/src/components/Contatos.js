@@ -56,6 +56,7 @@ export default class Contatos extends React.Component {
           <View style={styles.corpoView}>
             <ScrollView style={styles.container}>
               <Image source={contatos} style={styles.containerImg} />
+              <Text style={styles.titulo}>CONHEÇA-NOS</Text>
               {this.state.contatos.map( (contato, i) => {
                 return(
                   <ContatosCollapsiblePanel 
@@ -63,6 +64,8 @@ export default class Contatos extends React.Component {
                     titulo={contato.nome}
                     img={'http://api.calouros.ejcomp.com.br/uploads/' + contato.img}
                     descricao={contato.descricao}
+                    email={contato.email}
+                    telefone={contato.telefone}
                   />
                 );
               })} 
@@ -81,7 +84,17 @@ const styles = StyleSheet.create({
   corpoView: {
     flex: 1,
     backgroundColor: 'white'
-  }, 
+  },
+  titulo: {
+    fontFamily: 'theboldfont',
+    textAlign: 'center',
+    borderBottomWidth: 2,
+    borderColor: '#a2a2a2',
+    padding: 15,
+    paddingBottom: 25,
+    fontSize: 20,
+    color: '#03bfa0',
+  },
   containerImg: {
     flex: 1,
     width: Dimensions.get('window').width,

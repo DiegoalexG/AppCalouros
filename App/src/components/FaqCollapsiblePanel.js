@@ -58,7 +58,7 @@ class FaqCollapsiblePanel extends React.Component {
         let componente = (
             <Animated.View style={[styles.container, { height: this.state.animacao }]}>
                 <View style={{ flexDirection: 'row' }} onLayout={this.setMinHeight.bind(this)}>
-                    <LinearGradient colors={colors} style={{ width: 5 }} />
+                    <LinearGradient colors={colors} style={{ width: 5}} />
                     <Text style={styles.pergunta}>{this.props.titulo}</Text>
                     <TouchableHighlight 
                         style={styles.button} 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, AsyncStorage, Modal, ImageBackground, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, AsyncStorage, Modal, ImageBackground, Dimensions, Image } from 'react-native';
 import { Header, 
   Left, Right, Icon, 
   Body, Button, Fab, 
@@ -7,6 +7,7 @@ import { Header,
    CardItem, Container, Spinner } from 'native-base';
 
 const banner = require('../../assets/imgs/bannerSombreado.png');
+const contatos = require('../../assets/imgs/presencas.png');
 
 export default class Presencas extends React.Component {
   static navigationOptions = {
@@ -128,7 +129,8 @@ export default class Presencas extends React.Component {
               <Right />
             </Header>
           </ImageBackground>
-          <Content style={{ paddingTop: 10 }}>
+          <Content>
+            <Image source={contatos} style={styles.containerImg} />
            { this.state.disciplinas.map( (disc, i) => {
             return(
               <Card cardBorderRadius={50} style={styles.card} key={i+1} cardDefaultBg={"#12e1d3"}>
@@ -276,8 +278,8 @@ const styles = StyleSheet.create({
   border: {
     paddingRight: 0,
     paddingLeft: 0,
-    marginLeft: 20,
-    marginRight: 20,
+    marginLeft: 10,
+    marginRight: 10,
     borderTopWidth: 0.5,
     borderTopColor: '#777'
   },
@@ -291,6 +293,12 @@ const styles = StyleSheet.create({
   align: {
     flexDirection: 'row',
     justifyContent: 'center'
+  },
+  containerImg: {
+    flex: 1,
+    width: Dimensions.get('window').width,
+    height: 180,
+    resizeMode: 'cover'
   }
 });
 

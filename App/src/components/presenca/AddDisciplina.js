@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, AsyncStorage, Modal, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, AsyncStorage, Modal, TouchableHighlight, ImageBackground, Dimensions } from 'react-native';
 import { Header, Left, 
   Right, Icon, 
   Body, Button, 
@@ -7,6 +7,8 @@ import { Header, Left,
   Item, Input, 
   Container, Label,
   Row, Col } from 'native-base';
+
+const banner = require('../../../assets/imgs/bannerSombreado.png');
 
 export default class AddDisciplina extends React.Component {
 
@@ -112,17 +114,20 @@ export default class AddDisciplina extends React.Component {
           </Modal>
        
 
-        <Header style={{ backgroundColor: '#273238' }} >
-          <Left>
-            <Button transparent >
-              <Icon name='arrow-left' type="Feather" onPress={() => this.props.navigation.navigate('Presencas')} />
-            </Button>
-          </Left>
-          <Body>            
-            <Text style={{ color: '#fff' }}>Semana dos Calouros</Text>
-          </Body>
-          <Right />
-        </Header>        
+        <ImageBackground
+            source={banner}
+            style={[styles.sombra, { width: Dimensions.get('window').width }]}
+            imageStyle={{ width: Dimensions.get('window').width }}
+          >
+            <Header style={{ backgroundColor: 'transparent' }} >
+              <Left>
+                <Button transparent >
+                  <Icon name='arrow-left' type="Feather" onPress={() => this.props.navigation.navigate('Presencas')} />
+                </Button>
+              </Left>
+              <Right />
+            </Header>
+        </ImageBackground>       
         <Container>
         
         <Content>
