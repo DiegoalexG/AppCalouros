@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, SafeAreaView, ScrollView, Image, BackHandler} from 'react-native';
+import { View, SafeAreaView, ScrollView, Image, BackHandler } from 'react-native';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation';
 import { Icon } from 'native-base';
 import Principal from './src/components/Principal';
@@ -10,6 +10,7 @@ import Mapa from './src/components/Mapa';
 import Faq from './src/components/Faq';
 import Programacao from './src/components/Programacao';
 import Contatos from './src/components/Contatos';
+import AddDisciplina from './src/components/presenca/AddDisciplina';
 
 export default class App extends React.Component {
   render() {
@@ -38,7 +39,7 @@ const CustomDrawerComponent = (props) => (
 const AppDrawerNavigator = createDrawerNavigator({
   Início: Principal,
   Notificações: Notificacoes,
-  Presenças: Presencas,
+  Presencas: Presencas,
   Compartilhar: {
     screen: sair,
     navigationOptions:() => ({
@@ -49,7 +50,6 @@ const AppDrawerNavigator = createDrawerNavigator({
       )
     })
   },
-  Configurações: Configuracoes,
   Sair: {
     screen: sair,
     navigationOptions:() => ({
@@ -78,12 +78,19 @@ const AppDrawerNavigator = createDrawerNavigator({
         drawerLabel: () => null
     }
   },
+  AddDisciplina: {
+    screen: AddDisciplina,
+    navigationOptions: {
+        drawerLabel: () => null
+    }
+  },
   Contatos: {
     screen: Contatos,
     navigationOptions: {
         drawerLabel: () => null
     }
   }
+  
 }, {
   contentComponent: CustomDrawerComponent
 });
