@@ -78,12 +78,19 @@ const AppDrawerNavigator = createDrawerNavigator({
         drawerLabel: () => null
     }
   },
+  AddDisciplina: {
+    screen: AddDisciplina,
+    navigationOptions: {
+        drawerLabel: () => null
+    }
+  },
   Contatos: {
     screen: Contatos,
     navigationOptions: {
         drawerLabel: () => null
     }
   }
+  
 }, {
   contentComponent: CustomDrawerComponent
 });

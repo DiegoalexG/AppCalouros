@@ -57,7 +57,7 @@ export default class ContatosCollapsiblePanel extends React.Component {
         let componente = (
             <Animated.View style={[styles.container, { height: this.state.animacao }]}>
                 <View style={{ flexDirection: 'row' }} onLayout={this.setMinHeight.bind(this)}>
-                    <Thumbnail square large source={this.props.img} style={styles.imagem} />
+                    <Thumbnail source={{uri: this.props.img}} style={styles.imagem} />
                     <Text style={styles.textoTitulo}>{this.props.titulo}</Text>
                     <TouchableHighlight 
                         style={styles.button} 
@@ -75,7 +75,7 @@ export default class ContatosCollapsiblePanel extends React.Component {
             componente = (
                 <Animated.View style={[styles.container, { height: this.state.animacao }]} >
                     <View style={{ flexDirection: 'row' }} onLayout={this.setMinHeight.bind(this)}>
-                        <Thumbnail square large source={this.props.img} style={styles.imagem} />
+                        <Thumbnail  source={{uri: this.props.img}} style={styles.imagem} />
                         <Text style={styles.textoTitulo}>{this.props.titulo}</Text>
                         <TouchableHighlight 
                             style={styles.button} 

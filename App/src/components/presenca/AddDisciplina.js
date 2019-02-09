@@ -9,13 +9,7 @@ import { Header, Left,
   Row, Col } from 'native-base';
 
 export default class AddDisciplina extends React.Component {
-static navigationOptions = {
-    drawerIcon: ({ tintColor }) => (
-      <Icon name='beenhere' 
-      type="MaterialIcons"
-      style={{ fontSize: 24, color: tintColor }} />
-    )
-  }
+
 
   constructor(props) {
     super(props);
