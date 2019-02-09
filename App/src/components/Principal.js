@@ -1,8 +1,10 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, Text, View, StatusBar } from 'react-native';
-import { Container, Header, Left, Right, Icon, Body, Button } from 'native-base';
-import { Col, Row, Grid } from "react-native-easy-grid";
+import { TouchableOpacity, StyleSheet, Text, View, ImageBackground, Dimensions, StatusBar } from 'react-native';
+import { Container, Header, Left, Right, Icon, Button } from 'native-base';
+import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Font } from 'expo';
+
+const banner = require('../../assets/imgs/bannerSombreado.png');
 
 export default class Principal extends React.Component {
 
@@ -24,20 +26,23 @@ export default class Principal extends React.Component {
   render() {
     return (
       <Container >
-        <Header style={{ backgroundColor: '#273238'}} >
-          <Left>
-            <Button transparent >
-              <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
-            </Button>
-          </Left>
-          <Body>            
-            <Text style={{ color: '#fff' }}>Semana dos Calouros</Text>
-          </Body>
-          <Right />
-        </Header>    
+        <ImageBackground
+          source={banner}
+          style={[styles.sombra, { width: Dimensions.get('window').width }]}
+          imageStyle={{ width: Dimensions.get('window').width }}
+        >
+          <Header style={{ backgroundColor: 'transparent' }} >
+            <Left>
+              <Button transparent >
+                <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
+              </Button>
+            </Left>
+            <Right />
+          </Header>
+        </ImageBackground>
         <Grid>    
           <Row>
-            <Col style={{ backgroundColor: '#ffffff'}, styles.principal}>
+            <Col style={[{ backgroundColor: '#ffffff' }, styles.principal]}>
               <View>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Programacao')} >
                   <Icon name='calendar' type='FontAwesome' style={{ fontSize: 54, color: 'red', alignSelf: 'center' }} />
@@ -45,7 +50,7 @@ export default class Principal extends React.Component {
                 </TouchableOpacity>
               </View>
             </Col>
-            <Col style={[{ backgroundColor: '#0191ea'}, styles.principal]}>
+            <Col style={[{ backgroundColor: '#0191ea' }, styles.principal]}>
               <View>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Contatos')} >
                   <Icon name='people' type='MaterialIcons' style={{ fontSize: 54, color: 'white', alignSelf: 'center' }} />
@@ -55,7 +60,7 @@ export default class Principal extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col style={[{ backgroundColor: '#E8B336'}, styles.principal]}>
+            <Col style={[{ backgroundColor: '#E8B336' }, styles.principal]}>
               <View>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Mapa')} >
                   <Icon name='map' type='Foundation' style={{ fontSize: 54, color: '#00B336', alignSelf: 'center' }} />
@@ -63,7 +68,7 @@ export default class Principal extends React.Component {
                 </TouchableOpacity>
               </View>
             </Col>
-            <Col style={[{ backgroundColor: '#fb3e05'}, styles.principal]}>
+            <Col style={[{ backgroundColor: '#fb3e05' }, styles.principal]}>
               <View>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Faq')} >
                   <Icon name='question-answer' type='MaterialIcons' style={{ fontSize: 54, color: '#FBB442', alignSelf: 'center' }} />

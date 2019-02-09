@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, AsyncStorage, Modal } from 'react-native';
+import { StyleSheet, Text, View, AsyncStorage, Modal, ImageBackground, Dimensions } from 'react-native';
 import { Header, 
   Left, Right, Icon, 
   Body, Button, Fab, 
   Content, Card, Row, Col,
    CardItem, Container, Spinner } from 'native-base';
 
+const banner = require('../../assets/imgs/bannerSombreado.png');
 
 export default class Presencas extends React.Component {
   static navigationOptions = {
@@ -113,17 +114,20 @@ export default class Presencas extends React.Component {
             </View>
           </Modal>
 
-          <Header style={{ backgroundColor: '#273238' }} >
-            <Left>
-              <Button transparent >
-                <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
-              </Button>
-            </Left>
-            <Body>            
-              <Text style={{ color: '#fff' }}>Semana dos Calouros</Text>
-            </Body>
-            <Right />
-          </Header>   
+          <ImageBackground
+            source={banner}
+            style={[styles.sombra, { width: Dimensions.get('window').width }]}
+            imageStyle={{ width: Dimensions.get('window').width }}
+          >
+            <Header style={{ backgroundColor: 'transparent' }} >
+              <Left>
+                <Button transparent >
+                  <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
+                </Button>
+              </Left>
+              <Right />
+            </Header>
+          </ImageBackground>
           <Content style={{ paddingTop: 10 }}>
            { this.state.disciplinas.map( (disc, i) => {
             return(
@@ -193,40 +197,46 @@ export default class Presencas extends React.Component {
            
         </View>
       );
-    } else if (this.state.disciplinas == null) {
+    } /*else if (this.state.disciplinas == null) {
       return (
         <View style={styles.container} >
-          <Header style={{ backgroundColor: '#273238' }} >
-            <Left>
-              <Button transparent >
-                <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
-              </Button>
-            </Left>
-            <Body>            
-              <Text style={{ color: '#fff' }}>Semana dos Calouros</Text>
-            </Body>
-            <Right />
-          </Header> 
+          <ImageBackground
+            source={banner}
+            style={[styles.sombra, { width: Dimensions.get('window').width }]}
+            imageStyle={{ width: Dimensions.get('window').width }}
+          >
+            <Header style={{ backgroundColor: 'transparent' }} >
+              <Left>
+                <Button transparent >
+                  <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
+                </Button>
+              </Left>
+              <Right />
+            </Header>
+          </ImageBackground>
           <Content>
             <Spinner />            
           </Content>
         </View>
       );
-    } 
+    } */
 
     return (
       <View style={styles.container} >
-        <Header style={{ backgroundColor: '#273238' }} >
-          <Left>
-            <Button transparent >
-              <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
-            </Button>
-          </Left>
-          <Body>            
-            <Text style={{ color: '#fff' }}>Semana dos Calouros</Text>
-          </Body>
-          <Right />
-        </Header>   
+        <ImageBackground
+          source={banner}
+          style={[styles.sombra, { width: Dimensions.get('window').width }]}
+          imageStyle={{ width: Dimensions.get('window').width }}
+        >
+          <Header style={{ backgroundColor: 'transparent' }} >
+            <Left>
+              <Button transparent >
+                <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
+              </Button>
+            </Left>
+            <Right />
+          </Header>
+        </ImageBackground> 
         <Content>
           <Text style={{ textAlign: 'center', fontSize: 20, marginTop: 25, color: 'black', fontFamily: 'sans-serif-light' }}>
             Nenhuma Disciplina Adicionada
