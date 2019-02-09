@@ -41,7 +41,7 @@ export default class Contatos extends React.Component {
         <View style={styles.container} >
           <ImageBackground
             source={banner}
-            style={[styles.sombra, { width: Dimensions.get('window').width }]}
+            style={{ elevation: 20, width: Dimensions.get('window').width }}
             imageStyle={{ width: Dimensions.get('window').width }}
           >
             <Header style={{ backgroundColor: 'transparent' }} >

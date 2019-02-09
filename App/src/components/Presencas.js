@@ -117,7 +117,7 @@ export default class Presencas extends React.Component {
 
           <ImageBackground
             source={banner}
-            style={[styles.sombra, { width: Dimensions.get('window').width }]}
+            style={{ elevation: 20, width: Dimensions.get('window').width }}
             imageStyle={{ width: Dimensions.get('window').width }}
           >
             <Header style={{ backgroundColor: 'transparent' }} >
@@ -238,8 +238,9 @@ export default class Presencas extends React.Component {
             </Left>
             <Right />
           </Header>
-        </ImageBackground> 
+        </ImageBackground>
         <Content>
+          <Image source={contatos} style={styles.containerImg} />
           <Text style={{ textAlign: 'center', fontSize: 20, marginTop: 25, color: 'black', fontFamily: 'sans-serif-light' }}>
             Nenhuma Disciplina Adicionada
           </Text>
@@ -298,7 +299,8 @@ const styles = StyleSheet.create({
     flex: 1,
     width: Dimensions.get('window').width,
     height: 180,
-    resizeMode: 'cover'
+    resizeMode: 'cover',
+    marginBottom: 10
   }
 });
 
