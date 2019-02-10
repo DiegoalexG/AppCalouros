@@ -24,14 +24,16 @@ export default class ContatosCollapsiblePanel extends React.Component {
                 </View>
             );
         } else {
-            contatos = (
-                <View style={{ margin: 10 }}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <Icon name="email" type="MaterialCommunityIcons" style={{ fontSize: 20, marginRight: 5 }} />
-                        <Text style={{ fontFamily: 'theboldfont', fontSize: 12 }}>Email: {' '}{this.props.email}</Text>
-                    </View>
-                </View>
-            );
+        	if (this.props.email) {
+	            contatos = (
+					<View style={{ margin: 10 }}>
+						<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+							<Icon name="email" type="MaterialCommunityIcons" style={{ fontSize: 20, marginRight: 5 }} />
+							<Text style={{ fontFamily: 'theboldfont', fontSize: 12 }}>Email: {' '}{this.props.email}</Text>
+						</View>
+					</View>
+				);
+			}
         }
         this.icons = {     
             up: upName,

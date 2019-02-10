@@ -5,7 +5,7 @@ import axios from 'axios';
 import ContatosCollapsiblePanel from './ContatosCollapsiblePanel';
 
 const banner = require('../../assets/imgs/bannerSombreado.png');
-const contatos = require('../../assets/imgs/contatos.png');
+const contatos = require('../../assets/imgs/notificacao.png');
 
 export default class Notificacoes extends React.Component {
   static navigationOptions = {
