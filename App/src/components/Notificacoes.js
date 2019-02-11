@@ -6,6 +6,7 @@ import ContatosCollapsiblePanel from './ContatosCollapsiblePanel';
 
 const banner = require('../../assets/imgs/bannerSombreado.png');
 const contatos = require('../../assets/imgs/notificacao.png');
+const ej = require('../../assets/imgs/ej.png');
 
 export default class Notificacoes extends React.Component {
   static navigationOptions = {
@@ -40,8 +41,8 @@ export default class Notificacoes extends React.Component {
   render() {
     if(this.state.notificacoes.length == 0){
       return(
-        <View style={{ justifyContent: 'center' }} >
-          <Spinner />  
+        <View style={{ flex: 1, itemAlign: 'center', justifyContent: 'center' }} >
+          <Image style={{ width: null, height: 150, resizeMode: 'contain' }} source={ej} />
         </View>
       );
     } else {

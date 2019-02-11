@@ -6,6 +6,7 @@ import ContatosCollapsiblePanel from './ContatosCollapsiblePanel';
 
 const banner = require('../../assets/imgs/bannerSombreado.png');
 const contatos = require('../../assets/imgs/contatos.png');
+const ej = require('../../assets/imgs/ej.png');
 
 export default class Contatos extends React.Component {
 
@@ -32,8 +33,8 @@ export default class Contatos extends React.Component {
   render() {
     if(this.state.contatos.length == 0){
       return(
-        <View style={{ justifyContent: 'center' }} >
-          <Spinner />  
+        <View style={{ flex: 1, itemAlign: 'center', justifyContent: 'center' }} >
+          <Image style={{ width: null, height: 150, resizeMode: 'contain' }} source={ej} />
         </View>
       );
     } else {

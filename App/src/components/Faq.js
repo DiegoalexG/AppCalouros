@@ -29,24 +29,24 @@ export default class Faq extends React.Component {
           <ScrollView style={styles.container}>
             <Image source={faq} style={styles.containerImg} />
             <FaqCollapsiblePanel
+              titulo="Para quais plataformas o aplicativo está disponível?" 
+            >
+              <Text>No momento, o aplicativo conta com versōes apenas para Android.</Text>
+            </FaqCollapsiblePanel>
+            <FaqCollapsiblePanel
               titulo="O que exatamente é a semana dos calouros?" 
             >
-              <Text>A primeira semana de aulas da FCT Unesp propõe uma 
-              série de atividades que visam integrar o novo aluno à 
-              faculdade. Através dessas atividades, busca-se apresentar 
-              aos calouros os seus cursos, promover a socialização entre 
-              colegas e explicar como algumas entidades presentes na universidade 
-              funcionam.</Text>
+              <Text>A primeira semana de aulas da FCT Unesp propõe uma série 
+              de atividades que visam integrar o novo aluno à Faculdade. Através 
+              dessas atividades, busca-se apresentar aos calouros os seus cursos, 
+              promover a socialização entre colegas e explicar como algumas entidades 
+              presentes na universidade funcionam.</Text>
             </FaqCollapsiblePanel>
             <FaqCollapsiblePanel 
               titulo="Não conheço bem o câmpus, como faço para encontrar o local das próximas atividades?"
             >
               <Text>Na aba "Mapa", localizada no menu, você terá acesso ao 
-              mapa de toda a FCT Unesp com pontos de referência e suas 
-              respectivas fotos e descrições.</Text>
-            </FaqCollapsiblePanel>
-            <FaqCollapsiblePanel titulo="Pergunta">
-              <Text>Resposta</Text>
+              mapa de toda a FCT Unesp com pontos de referência.</Text>
             </FaqCollapsiblePanel>
             <FaqCollapsiblePanel 
             titulo="A semana dos calouros se encerrou. Devo deletar o aplicativo?"
@@ -58,6 +58,11 @@ export default class Faq extends React.Component {
               chamada "Presenças" na qual você poderá adicionar ou excluir as 
               matérias que estiver fazendo e poderá marcar suas presenças e faltas, 
               facilitando o cálculo da porcentagem de presença.</Text>
+            </FaqCollapsiblePanel>
+            <FaqCollapsiblePanel titulo="Pergunta">
+              <Text>O aplicativo estará aberto para mudanças e melhoras durante todo o 
+              ano, por isso, reportar bugs é essencial para contribuir com essas melhoras. 
+              Para reportar, você pode nos contatar através do email computacaojr@gmail.com</Text>
             </FaqCollapsiblePanel>
             <FaqCollapsiblePanel 
               titulo="Tenho alguma outra dúvida que não foi tratada aqui, com quem posso conversar para tirá-la?"
