@@ -28,7 +28,7 @@ export default class Principal extends React.Component {
       <Container >
         <ImageBackground
           source={banner}
-          style={[styles.sombra, { width: Dimensions.get('window').width }]}
+          style={{ elevation: 20, width: Dimensions.get('window').width }}
           imageStyle={{ width: Dimensions.get('window').width }}
         >
           <Header style={{ backgroundColor: 'transparent' }} >
@@ -42,15 +42,15 @@ export default class Principal extends React.Component {
         </ImageBackground>
         <Grid>    
           <Row>
-            <Col style={[{ backgroundColor: '#ffffff' }, styles.principal]}>
+            <Col style={[{ backgroundColor: '#0191EA' }, styles.principal]}>
               <View>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Programacao')} >
-                  <Icon name='calendar' type='FontAwesome' style={{ fontSize: 54, color: 'red', alignSelf: 'center' }} />
+                  <Icon name='calendar' type='FontAwesome' style={{ fontSize: 54, color: 'white', alignSelf: 'center' }} />
                   <Text style={styles.textoBotao}>Programação</Text>
                 </TouchableOpacity>
               </View>
             </Col>
-            <Col style={[{ backgroundColor: '#0191ea' }, styles.principal]}>
+            <Col style={[{ backgroundColor: '#0180DE' }, styles.principal]}>
               <View>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Contatos')} >
                   <Icon name='people' type='MaterialIcons' style={{ fontSize: 54, color: 'white', alignSelf: 'center' }} />
@@ -60,18 +60,18 @@ export default class Principal extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col style={[{ backgroundColor: '#E8B336' }, styles.principal]}>
+            <Col style={[{ backgroundColor: '#0170D3' }, styles.principal]}>
               <View>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Mapa')} >
-                  <Icon name='map' type='Foundation' style={{ fontSize: 54, color: '#00B336', alignSelf: 'center' }} />
+                  <Icon name='map' type='Foundation' style={{ fontSize: 54, color: 'white', alignSelf: 'center' }} />
                   <Text style={styles.textoBotao}>Mapa</Text>
                 </TouchableOpacity>
               </View>
             </Col>
-            <Col style={[{ backgroundColor: '#fb3e05' }, styles.principal]}>
+            <Col style={[{ backgroundColor: '#025FC7' }, styles.principal]}>
               <View>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Faq')} >
-                  <Icon name='question-answer' type='MaterialIcons' style={{ fontSize: 54, color: '#FBB442', alignSelf: 'center' }} />
+                  <Icon name='question-answer' type='MaterialIcons' style={{ fontSize: 54, color: 'white', alignSelf: 'center' }} />
                   <Text style={styles.textoBotao}>F.A.Q</Text>
                 </TouchableOpacity>
               </View>
@@ -90,11 +90,12 @@ const styles = StyleSheet.create({
   principal: {
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   textoBotao: {
     fontSize: 23,
-    color: '#273238',
+    color: 'white',
+    fontFamily: 'Roboto',
     fontWeight: 'bold'
   }
 });
