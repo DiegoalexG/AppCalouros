@@ -59,7 +59,7 @@ export default class Faq extends React.Component {
               matérias que estiver fazendo e poderá marcar suas presenças e faltas, 
               facilitando o cálculo da porcentagem de presença.</Text>
             </FaqCollapsiblePanel>
-            <FaqCollapsiblePanel titulo="Pergunta">
+            <FaqCollapsiblePanel titulo="Encontrei um bug/falha no aplicativo, como posso reportar?">
               <Text>O aplicativo estará aberto para mudanças e melhoras durante todo o 
               ano, por isso, reportar bugs é essencial para contribuir com essas melhoras. 
               Para reportar, você pode nos contatar através do email computacaojr@gmail.com</Text>
