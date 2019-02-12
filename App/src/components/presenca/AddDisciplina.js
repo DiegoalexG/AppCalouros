@@ -54,12 +54,16 @@ export default class AddDisciplina extends React.Component {
   
     if (this.state.disciplinas !== null) {
       let disciplinas = this.state.disciplinas;
-      disciplinas.push({ nome: this.state.nome, aulas: this.state.quantHoras, presenca: this.state.quantHoras, falta: 0 });
+      let aux = this.state.quantHoras.replace(/[^0-9]/g,'');
+      let aux2 = this.state.nome == '' ? '(Sem Nome)' : this.state.nome;
+      disciplinas.push({ nome: aux2, aulas: aux, presenca: aux, falta: 0 });
       AsyncStorage.setItem('disciplinas', JSON.stringify(disciplinas));  
      
     } else {     
         let disciplinas = [];
-        disciplinas.push({ nome: this.state.nome, aulas: this.state.quantHoras, presenca: this.state.quantHoras, falta: 0 });
+        let aux = this.state.quantHoras.replace(/[^0-9]/g,'');
+        let aux2 = this.state.nome == '' ? '(Sem Nome)' : this.state.nome;
+        disciplinas.push({ nome: aux2, aulas: aux, presenca: aux, falta: 0 });
         this._storeData(JSON.stringify(disciplinas));        
     }
 
