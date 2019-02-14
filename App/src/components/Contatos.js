@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, ImageBackground, Dimensions, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, ImageBackground, Dimensions, Image, NetInfo } from 'react-native';
 import { Header, Left, Right, Icon, Button, Spinner } from 'native-base';
 import axios from 'axios';
 import ContatosCollapsiblePanel from './ContatosCollapsiblePanel';
@@ -18,13 +18,14 @@ export default class Contatos extends React.Component {
   }
 
   componentDidMount(){
-
-    axios.post('http://api.calouros.ejcomp.com.br/index.php/Contato/api'
-    ).then((response) => {
-      this.setState({ contatos: response.data });
-    }).catch((error) => {
-      
-      
+    NetInfo.getConnectionInfo().then((connectionInfo) => {
+      axios.post('http://api.calouros.ejcomp.com.br/index.php/Contato/api'
+      ).then((response) => {
+        this.setState({ contatos: response.data });
+      }).catch((error) => {
+        
+        
+      });
     });
 
   
