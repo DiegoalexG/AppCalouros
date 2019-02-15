@@ -42,22 +42,31 @@ export default class Faq extends React.Component {
               promover a socialização entre colegas e explicar como algumas entidades 
               presentes na universidade funcionam.</Text>
             </FaqCollapsiblePanel>
+            <FaqCollapsiblePanel
+              titulo="Por que eu devo participar da semana dos calouros?" 
+            >
+              <Text>A semana dos calouros é um evento tradicional na FCT, pensado 
+              exatamente para auxiliar os calouros nessa nova etapa. É a melhor 
+              forma de integrar os ingressantes do ano de 2019 à realidade do 
+              campus e às atividades.</Text>
+            </FaqCollapsiblePanel>
             <FaqCollapsiblePanel 
               titulo="Não conheço bem o câmpus, como faço para encontrar o local das próximas atividades?"
             >
               <Text>Na aba "Mapa", localizada no menu, você terá acesso ao 
-              mapa de toda a FCT Unesp com pontos de referência.</Text>
+              mapa de toda a FCT Unesp com pontos de referência e suas fotos.</Text>
             </FaqCollapsiblePanel>
             <FaqCollapsiblePanel 
             titulo="A semana dos calouros se encerrou. Devo deletar o aplicativo?"
             >
-              <Text>Esse ano o aplicativo dos calouros surgiu com diversas 
-              novidades. Agora integrado ao aplicativo temos um feed de 
-              notícias que será atualizado de acordo com pedidos realizados 
-              pelas entidades da universidade. Além disso, adicionamos uma área 
-              chamada "Presenças" na qual você poderá adicionar ou excluir as 
-              matérias que estiver fazendo e poderá marcar suas presenças e faltas, 
-              facilitando o cálculo da porcentagem de presença.</Text>
+              <Text>Em 2019 o aplicativo dos calouros conta com diversas novidades. 
+              Agora integrado ao aplicativo, temos um feed de notícias que 
+              será atualizado de acordo com pedidos realizados pelas 
+              entidades da universidade. Além disso, adicionamos 
+              uma área chamada "Presenças", na qual você poderá adicionar ou excluir 
+              as matérias que estiver fazendo e poderá marcar suas presenças e faltas, 
+              facilitando o cálculo da porcentagem, e uma área chama "Devetores", na 
+              qual você poderá controlar as dívidas que outras pessoas têm com você.</Text>
             </FaqCollapsiblePanel>
             <FaqCollapsiblePanel titulo="Encontrei um bug/falha no aplicativo, como posso reportar?">
               <Text>O aplicativo estará aberto para mudanças e melhoras durante todo o 

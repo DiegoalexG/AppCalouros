@@ -1,16 +1,17 @@
 import React from 'react';
-import { View, SafeAreaView, ScrollView, Image, BackHandler } from 'react-native';
+import { View, SafeAreaView, ScrollView, Image, BackHandler, Share } from 'react-native';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation';
 import { Icon } from 'native-base';
 import Principal from './src/components/Principal';
 import Presencas from './src/components/Presencas';
 import Notificacoes from './src/components/Notificacoes';
-import Configuracoes from './src/components/Configuracoes';
 import Mapa from './src/components/Mapa';
 import Faq from './src/components/Faq';
 import Programacao from './src/components/Programacao';
 import Contatos from './src/components/Contatos';
+import Contas from './src/components/Contas';
 import AddDisciplina from './src/components/presenca/AddDisciplina';
+import AddDivida from './src/components/AddDivida';
 
 export default class App extends React.Component {
   render() {
@@ -22,6 +23,14 @@ export default class App extends React.Component {
 
 const sair = () => {
   BackHandler.exitApp();
+};
+
+const compartilhar = async () => {
+    try {
+      const result = await Share.share({
+        message: "Hey, você conhece o app da FCT UNESP? Nele você pode blablabla"
+      });
+    } catch (error) {}
 };
 
 const CustomDrawerComponent = (props) => (
@@ -40,8 +49,9 @@ const AppDrawerNavigator = createDrawerNavigator({
   Início: Principal,
   Notificações: Notificacoes,
   Presencas: Presencas,
+  Devedores: Contas,
   Compartilhar: {
-    screen: sair,
+    screen: compartilhar,
     navigationOptions:() => ({
       drawerIcon: ({ tintColor }) => (
         <Icon name='share' 
@@ -80,6 +90,12 @@ const AppDrawerNavigator = createDrawerNavigator({
   },
   AddDisciplina: {
     screen: AddDisciplina,
+    navigationOptions: {
+        drawerLabel: () => null
+    }
+  },
+  AddDivida: {
+    screen: AddDivida,
     navigationOptions: {
         drawerLabel: () => null
     }

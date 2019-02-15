@@ -11,10 +11,10 @@ export default class Map extends Component {
     const place = (e.nativeEvent.contentOffset.x > 0)
       ? e.nativeEvent.contentOffset.x / Dimensions.get('window').width
       : 0;
-
-    const { mark } = this.props.places[place];
-    const latitude = parseFloat(this.props.places[place].latitude);
-    const longitude = parseFloat(this.props.places[place].longitude);
+    const newPlaces = this.props.places.filter(this._filtrar);
+    const { mark } = newPlaces[place];
+    const latitude = parseFloat(newPlaces[place].latitude);
+    const longitude = parseFloat(newPlaces[place].longitude);
 
     this.mapView.animateToCoordinate({
       latitude,
@@ -27,17 +27,23 @@ export default class Map extends Component {
 
   }
 
+  _filtrar = (place) => {
+      let contem = false;
+      place.chaves.forEach((chave) => {
+          if (chave.toLowerCase().includes(this.props.filter.toLowerCase())) {
+              contem = true;
+          }
+      });   
+      if(contem) return place;
+   }
+
   _renderMakers = () => {
     let markers = [];
-
-    this.props.places.map((place, index) => (
-
-      // (this.state.code == "" || place.cod.includes(this.state.code)) ?
+    this.props.places.filter(this._filtrar).map((place, index) => {
       markers.push(
         <MapView.Marker
           ref={mark => place.mark = mark}
           title={place.nome}
-          description={place.descricao}
           key={index}
           coordinate={{
             latitude: parseFloat(place.latitude),
@@ -48,34 +54,28 @@ export default class Map extends Component {
           }}
         >
         </MapView.Marker>
-      )
-
-    ));
-
+      );
+    });
     return markers;
   }
 
   _renderScrolls = () => {
     let scrolls = [];
-
-    this.props.places.map((place, index) => (
+    this.props.places.filter(this._filtrar).map((place, index) => (
       scrolls.push(
         <TouchableHighlight
           key={index}
           style={styles.place}
         >
           <View style={{ flex: 1 }}>
-
-            <Text style={{ fontSize: 12, color: 'white', }}>{place.nome}</Text>
+            <Text style={{ textAlign: 'center', marginBottom: 10, fontSize: 12, color: 'white', fontFamily: 'theboldfont' }}>{place.nome}</Text>
             <Image 
-              resizeMode={'cover'}
-              style={{ width: '100%', height: 50 }}
-              source={{ uri: "https://conteudo.imguol.com.br/c/entretenimento/c4/2018/05/15/super-mario-odyssey-1526426783086_v2_1170x540.jpgx" }} />
-            <Text style={{ color: 'white', fontSize: 12 }}>{place.descricao}</Text>
+              resizeMode={'stretch'}
+              style={{ width: '100%', height: undefined, aspectRatio: 85 / 50 }}
+              source={place.img} />
           </View>
         </TouchableHighlight>
       )
-
     ));
     return scrolls;
   }
@@ -87,10 +87,10 @@ export default class Map extends Component {
         <MapView
           ref={map => this.mapView = map}
           initialRegion={{
-            latitude: -22.121161,
-            longitude: -51.407519,
+            latitude: -22.121866,
+            longitude: -51.407549,
             latitudeDelta: 0.005,
-            longitudeDelta: 0.005,
+            longitudeDelta: 0.005
           }}
           mapType={'satellite'}
           style={styles.mapView}
@@ -127,12 +127,3 @@ export default class Map extends Component {
   }
 
 }
-
-
-
-
-
-
-
-
-
