@@ -97,7 +97,7 @@ export default class AddDisciplina extends React.Component {
                   </View>
                   <View style={{ marginTop: 10 }}>
                     <Col>
-                      <Text style={{ textAlign: 'center', fontSize: 16, fontWeight: 'bold', color: '#3E495F' }}>Nova disciplina adicionada.</Text>
+                      <Text style={{ textAlign: 'center', fontSize: 16, fontWeight: 'bold', color: '#3E495F' }}>Nova disciplina adicionada. As faltas e a porcentagem de presença não estão vinculados com a Unesp. </Text>
                     </Col>
 
                   </View>

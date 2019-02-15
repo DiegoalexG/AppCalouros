@@ -73,7 +73,7 @@ class FaqCollapsiblePanel extends React.Component {
 
         if (this.state.expandido) {
             icon = this.icons.up;
-            colors = ['#FF9E98', '#BD0E2B'];
+            colors = ['#7f5fbf', '#543690'];
             componente = (
                 <Animated.View style={[styles.container, { height: this.state.animacao }]} >
                     <View style={{ flexDirection: 'row' }} onLayout={this.setMinHeight.bind(this)}>

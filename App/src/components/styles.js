@@ -24,7 +24,7 @@ export default StyleSheet.create({
 
     place: {
         width: width - 40,
-        height: 150,
+        height: 225,
         backgroundColor: 'rgba(25,25,112,.8)',
         marginHorizontal: 20,
         borderRadius: 10,
