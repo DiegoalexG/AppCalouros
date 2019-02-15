@@ -19,7 +19,16 @@ export default class Mapa extends React.Component {
           nome: 'Anfiteatro I',
           img: require('../../assets/imgs/locais/anf1.png'),
           chaves: [
-            'anfiteatro I'
+            'anfiteatro I',
+            'anf 1',
+            'anf I',
+            'palestra saude mental',
+            'palestra saúde mental',
+            'assembleia geral',
+            'reconhecimento do campus',
+            'câmpus',
+            'coletivo maos negras',
+            'coletivo mãos negras'
           ]
         },
         {
@@ -28,7 +37,11 @@ export default class Mapa extends React.Component {
           nome: 'Anfiteatro II',
           img: require('../../assets/imgs/locais/anf2.png'),
           chaves: [
-            'anfiteatro II'
+            'anfiteatro II',
+            'anf 2',
+            'anf II',
+            'Discussao sobre o impacto ambiental',
+            'Brumadinho'
           ]
         },
         {
@@ -37,7 +50,9 @@ export default class Mapa extends React.Component {
           nome: 'Anfiteatro III',
           img: require('../../assets/imgs/locais/anf3.png'),
           chaves: [
-            'anfiteatro III'
+            'anfiteatro III',
+            'anf 3',
+            'anf III',
           ]
         },
         {
@@ -46,7 +61,7 @@ export default class Mapa extends React.Component {
           nome: 'Auditório',
           img: require('../../assets/imgs/locais/auditorio.png'),
           chaves: [
-            'auditório'
+            'auditório',
           ]
         },
         {
@@ -55,7 +70,11 @@ export default class Mapa extends React.Component {
           nome: 'Biblioteca',
           img: require('../../assets/imgs/locais/biblioteca.png'),
           chaves: [
-            'biblioteca'
+            'biblioteca',
+            'show da química',
+            'filme',
+            'exibicao',
+            'exibição'
           ]
         },
         {
@@ -99,12 +118,13 @@ export default class Mapa extends React.Component {
           ]
         },
         {
-          latitude: -22,
-          longitude: -51,
+          latitude: -22.120980, 
+          longitude: -51.406557,
           nome: 'Bomboteca',
           img: require('../../assets/imgs/locais/bomboteca.png'),
           chaves: [
-            'bomboteca'
+            'bomboteca',
+            'quadra'
           ]
         },
         {
@@ -114,7 +134,8 @@ export default class Mapa extends React.Component {
           img: require('../../assets/imgs/locais/lab-5.png'),
           chaves: [
             'cacic | ejcomp | tcc',
-            'laboratório 5'
+            'laboratório 5',
+            'empresa junior'
           ]
         },
         {
@@ -141,7 +162,8 @@ export default class Mapa extends React.Component {
           nome: 'Diretório Acadêmico (D.A)',
           img: require('../../assets/imgs/locais/DA.png'),
           chaves: [
-            'diretório acadêmico (d.a)'
+            'diretório acadêmico (d.a)',
+            'da',
           ]
         },
         {
@@ -150,7 +172,8 @@ export default class Mapa extends React.Component {
           nome: 'Direção',
           img: require('../../assets/imgs/locais/direcao.png'),
           chaves: [
-            'direçao'
+            'direçao',
+            'ticket RU'
           ]
         },
         {
@@ -159,7 +182,8 @@ export default class Mapa extends React.Component {
           nome: 'EJECART',
           img: require('../../assets/imgs/locais/ejecart.png'),
           chaves: [
-            'ejecart'
+            'ejecart',
+            'empresa junior'
           ]
         },
         {
@@ -168,7 +192,8 @@ export default class Mapa extends React.Component {
           nome: 'EJEST',
           img: require('../../assets/imgs/locais/EJEST.png'),
           chaves: [
-            'ejest'
+            'ejest',
+            'empresa junior'
           ]
         },
         {
@@ -181,8 +206,8 @@ export default class Mapa extends React.Component {
           ]
         },
         {
-          latitude: -22,
-          longitude:  -51,
+          latitude: -22.122235,
+          longitude: -51.409115,
           nome: 'Eucaliptos',
           img: require('../../assets/imgs/locais/eucaliptos.png'),
           chaves: [
@@ -195,7 +220,8 @@ export default class Mapa extends React.Component {
           nome: 'GeoAmbiental Jr',
           img: require('../../assets/imgs/locais/geoambientaljr.png'),
           chaves: [
-            'geoambiental jr'
+            'geoambiental jr',
+            'empresa junior'
           ]
         },
         {
@@ -204,7 +230,11 @@ export default class Mapa extends React.Component {
           nome: 'Ginásio de Esportes',
           img: require('../../assets/imgs/locais/ginasio.png'),
           chaves: [
-            'ginásio de esportes'
+            'ginásio de esportes',
+            'desafio do calouro',
+            'integra calouro',
+            'yoga',
+            'palestra de boas vindas'
           ]
         },
         {
@@ -213,7 +243,8 @@ export default class Mapa extends React.Component {
           nome: 'Gramado',
           img: require('../../assets/imgs/locais/gramado.png'),
           chaves: [
-            'gramado'
+            'gramado',
+            'central'
           ]
         },
         {
@@ -222,7 +253,9 @@ export default class Mapa extends React.Component {
           nome: 'Joppanas Pobre',
           img: require('../../assets/imgs/locais/joppanas-pobre.png'),
           chaves: [
-            'joppanas pobre'
+            'joppanas pobre',
+            'cantina',
+            'xerox'
           ]
         },
         {
@@ -231,7 +264,10 @@ export default class Mapa extends React.Component {
           nome: 'Joppanas Rico',
           img: require('../../assets/imgs/locais/joppanas-rico.png'),
           chaves: [
-            'joppanas rico'
+            'joppanas rico',
+            'cantina',
+            'joppanas café',
+            'joppanas cafe'
           ]
         },
         {
@@ -240,7 +276,8 @@ export default class Mapa extends React.Component {
           nome: 'Laboratório 6 - Bloco 1',
           img: require('../../assets/imgs/locais/lab-6.png'),
           chaves: [
-            'laboratório 6'
+            'laboratório 6',
+            'computacao'
           ]
         },
         {
@@ -249,12 +286,13 @@ export default class Mapa extends React.Component {
           nome: 'Laboratório 10 - Bloco 1',
           img: require('../../assets/imgs/locais/lab-10.png'),
           chaves: [
-            'laboratório 10'
+            'laboratório 10',
+            'computacao'
           ]
         },
         {
-          latitude: -22,
-          longitude:  -51,
+          latitude: -22.122014,
+          longitude: -51.407047,
           nome: 'Latogeo',
           img: require('../../assets/imgs/locais/latogeo.png'),
           chaves: [
@@ -262,21 +300,34 @@ export default class Mapa extends React.Component {
           ]
         },
         {
-          latitude: -22,
-          longitude:  -51,
+          latitude: -22.122315,
+          longitude: -51.410132,
           nome: 'Maquetaria',
           img: require('../../assets/imgs/locais/maquetaria.png'),
           chaves: [
-            'maquetaria'
+            'maquetaria',
+            'arquitetura'
           ]
         },
+         {
+          latitude: -22.127925,
+          longitude: -51.413036,
+          nome: 'Ópera Krios',
+          img: require('../../assets/imgs/locais/ok.jpeg'),
+          chaves: [
+            'OK',
+            'empresa junior',
+            'arquitetura'
+          ]        
+        },
         {
-          latitude: -22,
-          longitude:  -51,
+          latitude: -22.11979,
+          longitude: -51.405803,
           nome: 'Performance Jr',
           img: require('../../assets/imgs/locais/performancejr.png'),
           chaves: [
-            'performance jr'
+            'performance jr',
+            'empresa junior'
           ]
         },
         {
@@ -285,7 +336,8 @@ export default class Mapa extends React.Component {
           nome: 'Quadra Educa',
           img: require('../../assets/imgs/locais/quadra-educa.png'),
           chaves: [
-            'quadra educa'
+            'quadra educa',
+            'esporte'
           ]
         },
         {
@@ -294,7 +346,8 @@ export default class Mapa extends React.Component {
           nome: 'Restaurante Universitário',
           img: require('../../assets/imgs/locais/RU.png'),
           chaves: [
-            'restaurante universitario'
+            'restaurante universitario',
+            'ru'
           ]
         },
         {
@@ -303,16 +356,21 @@ export default class Mapa extends React.Component {
           nome: 'Sala do rato (Ateliê)',
           img: require('../../assets/imgs/locais/sala-do-rato.png'),
           chaves: [
-            'sala do rato'
+            'sala do rato',
+            'atelie',
+            'ateliê',
+            'oficina papel reciclavel',
+            'oficina de criatividade'
           ]
         },
         {
-          latitude: -22,
-          longitude:  -51,
+          latitude: -22.121969,
+          longitude: -51.406480,
           nome: 'Seção Técnica de Informática',
           img: require('../../assets/imgs/locais/STI.png'),
           chaves: [
-            'seção técnica de informática'
+            'seção técnica de informática',
+            'STI'
           ]
         },
         {
@@ -321,7 +379,8 @@ export default class Mapa extends React.Component {
           nome: 'Treino - Pegasus',
           img: require('../../assets/imgs/locais/treino-pegasus.png'),
           chaves: [
-            'pegasus'
+            'pegasus',
+            'cheer'
           ]
         },
       ]

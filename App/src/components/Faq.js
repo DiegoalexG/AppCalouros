@@ -71,22 +71,16 @@ export default class Faq extends React.Component {
             <FaqCollapsiblePanel titulo="Encontrei um bug/falha no aplicativo, como posso reportar?">
               <Text>O aplicativo estará aberto para mudanças e melhoras durante todo o 
               ano, por isso, reportar bugs é essencial para contribuir com essas melhoras. 
-              Para reportar, você pode nos contatar através do email computacaojr@gmail.com</Text>
+              Você pode nos contatar por meio do e-mail appcalouros@ejcomp.com.br para nos enviar 
+              seu feedback, reportar algum erro ou bug, e até mesmo esclarecer suas 
+              dúvidas (não se esqueça de especificar no assunto do e-mail).</Text>
             </FaqCollapsiblePanel>
             <FaqCollapsiblePanel 
               titulo="Tenho alguma outra dúvida que não foi tratada aqui, com quem posso conversar para tirá-la?"
             >
               <Text>No menu temos uma área chamada "Contatos", dedicada a descrever as entidades 
               presentes na universidade e disponibilizar seus contatos. A partir dessa descrição, 
-              você deverá ser capaz de saber qual poderá solucionar sua dúvida. Caso tenha alguma 
-              dúvida sobre o aplicativo ou queira deixar um feedback, contate nossa empresa 
-              júnior pelo { }
-                <Text 
-                  style={{ color: 'blue' }}
-                  onPress={() => Linking.openURL('https://pt-br.facebook.com/EJComp.UNESP/')}
-                >
-                 Facebook
-                </Text>
+              você deverá ser capaz de saber qual poderá solucionar sua dúvida.
               </Text>
             </FaqCollapsiblePanel>
           </ScrollView>

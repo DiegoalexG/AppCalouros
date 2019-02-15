@@ -39,7 +39,20 @@ export default class Map extends Component {
 
   _renderMakers = () => {
     let markers = [];
+
+    let latitude = null;
+    let longitude = null;
+    let marker = null;
+
+
     this.props.places.filter(this._filtrar).map((place, index) => {
+
+      if(latitude == null || longitude == null){
+        latitude = place.latitude;
+        longitude = place.longitude;
+        marker = place.mark;
+      }
+
       markers.push(
         <MapView.Marker
           ref={mark => place.mark = mark}
@@ -56,6 +69,15 @@ export default class Map extends Component {
         </MapView.Marker>
       );
     });
+
+    if (this.mapView && latitude != null && longitude != null){
+      this.mapView.animateToCoordinate({
+        latitude,
+        longitude
+      }, 1000);
+      marker.showCallout();    
+    }
+
     return markers;
   }
 
@@ -78,6 +100,10 @@ export default class Map extends Component {
       )
     ));
     return scrolls;
+  }
+
+  componentWillUnmount(){
+    this.mapView = null;
   }
 
   render() {
