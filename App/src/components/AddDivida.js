@@ -114,7 +114,7 @@ export default class AddDivida extends React.Component {
                             </View>
                             <View style={{ marginTop: 10 }}>
                                 <Col>
-                                    <Text style={{ textAlign: 'center', fontSize: 16, fontWeight: 'bold', color: '#3E495F' }}>Novo devedor adicionado.</Text>
+                                    <Text style={{ textAlign: 'center', fontSize: 16, fontWeight: 'bold', color: '#3E495F' }}>Novo devedor adicionado. Os dados ficarão salvos apenas em seu smartphone e não serão divulgados.</Text>
                                 </Col>
 
                             </View>
@@ -173,9 +173,7 @@ export default class AddDivida extends React.Component {
                                 style={{ justifyContent: 'center', width: '92%', marginTop: 40 }} >
                                 <Text style={{ color: 'white', fontWeight: 'bold' }}>Confirmar</Text>
                             </Button>
-                        </View>
-                        <Text>Os dados ficarão salvos apenas em seu smartphone e não serão divulgados.</Text>
-                        <Text>Os dados serão perdidos caso exclua os dados do aplicativo.</Text>
+                        </View>                       
                     </Content>
 
                 </Container>

@@ -2,6 +2,7 @@ import React from 'react';
 import { View, SafeAreaView, ScrollView, Image, BackHandler, Share } from 'react-native';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation';
 import { Icon } from 'native-base';
+import Expo from 'expo';
 import Principal from './src/components/Principal';
 import Presencas from './src/components/Presencas';
 import Notificacoes from './src/components/Notificacoes';
@@ -13,7 +14,23 @@ import Contas from './src/components/Contas';
 import AddDisciplina from './src/components/presenca/AddDisciplina';
 import AddDivida from './src/components/AddDivida';
 
+
+async function register() {
+  const { status } = await Expo.Permissions.askAsync(
+    Expo.Permissions.NOTIFICATIONS
+  );
+
+  if(status !== 'granted'){
+    alert('Você deve permitir notificações!');
+    return;
+  }
+
+  const token = await Expo.Notifications.getExpoPushTokenAsync();
+  console.log(status, token);
+}
+
 export default class App extends React.Component {
+  
   render() {
     return (
       <AppDrawerNavigator />
