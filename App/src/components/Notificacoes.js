@@ -11,38 +11,41 @@ const ej = require('../../assets/imgs/ej.png');
 export default class Notificacoes extends React.Component {
   static navigationOptions = {
     drawerIcon: ({ tintColor }) => (
-      <Icon 
-      name='notifications' 
-      type="MaterialIcons"
-      style={{ fontSize: 24, color: tintColor }} />
+      <Icon
+        name='notifications'
+        type="MaterialIcons"
+        style={{ fontSize: 24, color: tintColor }} />
     )
   }
 
   constructor(props) {
-    super(props);    
-    this.state = {       
-        notificacoes: []      
-      };     
+    super(props);
+    this.state = {
+      notificacoes: []
+    };
   }
 
-  componentDidMount(){
+  componentDidMount() {
 
     axios.post('http://api.calouros.ejcomp.com.br/index.php/Notificacao/api'
     ).then((response) => {
+      console.log(response.data);
       this.setState({ notificacoes: response.data });
     }).catch((error) => {
-      
-      
+
+
     });
 
-  
+
   }
 
   render() {
-    if(this.state.notificacoes.length == 0){
-      return(
-        <View style={{ flex: 1, itemAlign: 'center', justifyContent: 'center' }} >
+    if (this.state.notificacoes.length == 0) {
+      return (
+        <View style={{ flex: 1, itemAlign: 'center', justifyContent: 'center' }} onPress={() => this.props.navigation.goBack()}>
           <Image style={{ width: null, height: 150, resizeMode: 'contain' }} source={ej} />
+          <Text style={{textAlign: 'center'}}>Nenhuma notificação no momento</Text>
+          <Icon style={{alignSelf: 'center'}} type="AntDesign" name='arrowleft' />
         </View>
       );
     } else {
@@ -65,16 +68,16 @@ export default class Notificacoes extends React.Component {
           <View style={styles.corpoView}>
             <ScrollView style={styles.container}>
               <Image source={contatos} style={styles.containerImg} />
-              {this.state.notificacoes.map( (contato, i) => {
-                return(
-                  <ContatosCollapsiblePanel 
+              {this.state.notificacoes.map((contato, i) => {
+                return (
+                  <ContatosCollapsiblePanel
                     key={i}
                     titulo={contato.nome}
                     img={'http://api.calouros.ejcomp.com.br/uploads/' + contato.img}
                     descricao={contato.descricao}
                   />
                 );
-              })} 
+              })}
             </ScrollView>
           </View>
         </View>
@@ -93,7 +96,7 @@ const styles = StyleSheet.create({
   corpoView: {
     flex: 1,
     backgroundColor: '#d1d1e0'
-  }, 
+  },
   containerImg: {
     flex: 1,
     width: Dimensions.get('window').width,

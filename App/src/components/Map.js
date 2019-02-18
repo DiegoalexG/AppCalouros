@@ -7,14 +7,15 @@ import styles from './styles.js';
 export default class Map extends Component {
 
   _scrollEnd = (e) => {
-
     const place = (e.nativeEvent.contentOffset.x > 0)
       ? e.nativeEvent.contentOffset.x / Dimensions.get('window').width
       : 0;
+
     const newPlaces = this.props.places.filter(this._filtrar);
+
     const { mark } = newPlaces[place];
-    const latitude = parseFloat(newPlaces[place].latitude);
-    const longitude = parseFloat(newPlaces[place].longitude);
+    const latitude = newPlaces[place].latitude;
+    const longitude = newPlaces[place].longitude;
 
     this.mapView.animateToCoordinate({
       latitude,
@@ -23,31 +24,29 @@ export default class Map extends Component {
 
     setTimeout(() => {
       mark.showCallout();
-    }, 0)
-
+    }, 0);
   }
 
   _filtrar = (place) => {
-      let contem = false;
-      place.chaves.forEach((chave) => {
-          if (chave.toLowerCase().includes(this.props.filter.toLowerCase())) {
-              contem = true;
-          }
-      });   
-      if(contem) return place;
-   }
+    let contem = false;
+    place.chaves.forEach((chave) => {
+      if (chave.toLowerCase().includes(this.props.filter.toLowerCase())) {
+        contem = true;
+      }
+    });
+    if (contem) return place;
+  }
 
   _renderMakers = () => {
-    let markers = [];
+    const markers = [];
 
     let latitude = null;
     let longitude = null;
     let marker = null;
 
-
     this.props.places.filter(this._filtrar).map((place, index) => {
-
-      if(latitude == null || longitude == null){
+     
+      if (latitude == null || longitude == null) {
         latitude = place.latitude;
         longitude = place.longitude;
         marker = place.mark;
@@ -65,24 +64,24 @@ export default class Map extends Component {
           onPress={() => {
             this._scrollView.scrollTo({ x: index * Dimensions.get('window').width, y: 0, animated: true });
           }}
-        >
-        </MapView.Marker>
+        />
       );
     });
 
-    if (this.mapView && latitude != null && longitude != null){
+    if (this.mapView && latitude != null && longitude != null && marker != null) {
+      console.log(latitude, longitude, marker);
       this.mapView.animateToCoordinate({
         latitude,
         longitude
       }, 1000);
-      marker.showCallout();    
+      marker.showCallout();
     }
 
     return markers;
   }
 
   _renderScrolls = () => {
-    let scrolls = [];
+    const scrolls = [];
     this.props.places.filter(this._filtrar).map((place, index) => (
       scrolls.push(
         <TouchableHighlight
@@ -91,10 +90,11 @@ export default class Map extends Component {
         >
           <View style={{ flex: 1 }}>
             <Text style={{ textAlign: 'center', marginBottom: 10, fontSize: 12, color: 'white', fontFamily: 'theboldfont' }}>{place.nome}</Text>
-            <Image 
+            <Image
               resizeMode={'stretch'}
               style={{ width: '100%', height: undefined, aspectRatio: 85 / 50 }}
-              source={place.img} />
+              source={place.img}
+            />
           </View>
         </TouchableHighlight>
       )
@@ -102,32 +102,28 @@ export default class Map extends Component {
     return scrolls;
   }
 
-  componentWillUnmount(){
-    this.mapView = null;
+  componentWillUnmount() {
+    // this.mapView = null;
   }
 
   render() {
-
     return (
       <View style={styles.container}>
         <MapView
           ref={map => this.mapView = map}
           initialRegion={{
-            latitude: -22.121866,
-            longitude: -51.407549,
-            latitudeDelta: 0.005,
-            longitudeDelta: 0.005
+            latitude: parseFloat(-22.121866),
+            longitude: parseFloat(-51.407549),
+            latitudeDelta: 0.0043,
+            longitudeDelta: 0.0034
           }}
           mapType={'satellite'}
           style={styles.mapView}
           rotateEnabled={this.props.rotate}
-          showsPointsOfInterest={true}
+          showsPointsOfInterest
           showBuildings={false}
-          showsUserLocation={true}
-          showsMyLocationButton={true}
-          onMapReady={() => {
-            this.props.onMapReady(this.mapView);
-          }}
+          showsUserLocation
+          showsMyLocationButton
         >
 
           {this._renderMakers()}
@@ -138,7 +134,7 @@ export default class Map extends Component {
           style={styles.placesContainer}
           horizontal
           pagingEnabled
-          showsHorizontalScrollIndicator={true}
+          showsHorizontalScrollIndicator
 
 
           onMomentumScrollEnd={(e) => {

@@ -1,9 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, TextInput } from 'react-native';
-import { Header, Left, Right, Body, Icon, Button } from 'native-base';
+import { Header, Left, Right, Icon, Button } from 'native-base';
 import Map from './Map';
 
-const banner = require('../../assets/imgs/bannerSombreado.png');
 
 export default class Mapa extends React.Component {
 
@@ -27,8 +26,8 @@ export default class Mapa extends React.Component {
             'assembleia geral',
             'reconhecimento do campus',
             'câmpus',
-            'coletivo maos negras',
-            'coletivo mãos negras'
+            'atividade coletivo maos negras',
+            'atividade coletivo mãos negras'
           ]
         },
         {
@@ -41,7 +40,9 @@ export default class Mapa extends React.Component {
             'anf 2',
             'anf II',
             'Discussao sobre o impacto ambiental',
-            'Brumadinho'
+            'Brumadinho',
+            'atividade coletivo maos negras',
+            'atividade coletivo mãos negras'
           ]
         },
         {
@@ -118,8 +119,8 @@ export default class Mapa extends React.Component {
           ]
         },
         {
-          latitude: -22.120980, 
-          longitude: -51.406557,
+          latitude: -22.120972,
+          longitude: -51.406544,
           nome: 'Bomboteca',
           img: require('../../assets/imgs/locais/bomboteca.png'),
           chaves: [
@@ -130,7 +131,7 @@ export default class Mapa extends React.Component {
         {
           latitude: -22.120902,
           longitude: -51.408068,
-          nome: 'CACiC | EJCOMP | TCC',
+          nome: 'CACiC | EJCOMP',
           img: require('../../assets/imgs/locais/lab-5.png'),
           chaves: [
             'cacic | ejcomp | tcc',
@@ -188,7 +189,7 @@ export default class Mapa extends React.Component {
         },
         {
           latitude: -22.122781,
-          longitude:  -51.409296,
+          longitude: -51.409296,
           nome: 'EJEST',
           img: require('../../assets/imgs/locais/EJEST.png'),
           chaves: [
@@ -198,7 +199,7 @@ export default class Mapa extends React.Component {
         },
         {
           latitude: -22.119816,
-          longitude:  -51.405773,
+          longitude: -51.405773,
           nome: 'Ensaio Bateria Furiosa',
           img: require('../../assets/imgs/locais/ensaio-bateria-furiosa.png'),
           chaves: [
@@ -211,12 +212,12 @@ export default class Mapa extends React.Component {
           nome: 'Eucaliptos',
           img: require('../../assets/imgs/locais/eucaliptos.png'),
           chaves: [
-            'eucaliptos'
+            'caminho dos eucaliptos',
           ]
         },
         {
           latitude: -22.121099,
-          longitude:  -51.408304,
+          longitude: -51.408304,
           nome: 'GeoAmbiental Jr',
           img: require('../../assets/imgs/locais/geoambientaljr.png'),
           chaves: [
@@ -226,7 +227,7 @@ export default class Mapa extends React.Component {
         },
         {
           latitude: -22.118388,
-          longitude:  -51.407645,
+          longitude: -51.407645,
           nome: 'Ginásio de Esportes',
           img: require('../../assets/imgs/locais/ginasio.png'),
           chaves: [
@@ -234,12 +235,19 @@ export default class Mapa extends React.Component {
             'desafio do calouro',
             'integra calouro',
             'yoga',
-            'palestra de boas vindas'
+            'palestra de boas vindas',
+            'integra calouro',
+            'roda de capoeira',
+            'treinos',
+            'pegasus',
+            'ensaio bateria furiosa',
+            'dança',
+            'danca'
           ]
         },
         {
           latitude: -22.122666,
-          longitude:  -51.408524,
+          longitude: -51.408524,
           nome: 'Gramado',
           img: require('../../assets/imgs/locais/gramado.png'),
           chaves: [
@@ -249,7 +257,7 @@ export default class Mapa extends React.Component {
         },
         {
           latitude: -22.122867,
-          longitude:  -51.410540,
+          longitude: -51.410540,
           nome: 'Joppanas Pobre',
           img: require('../../assets/imgs/locais/joppanas-pobre.png'),
           chaves: [
@@ -260,7 +268,7 @@ export default class Mapa extends React.Component {
         },
         {
           latitude: -22.121566,
-          longitude:  -51.407443,
+          longitude: -51.407443,
           nome: 'Joppanas Rico',
           img: require('../../assets/imgs/locais/joppanas-rico.png'),
           chaves: [
@@ -272,7 +280,7 @@ export default class Mapa extends React.Component {
         },
         {
           latitude: -22.120826,
-          longitude:  -51.408039,
+          longitude: -51.408039,
           nome: 'Laboratório 6 - Bloco 1',
           img: require('../../assets/imgs/locais/lab-6.png'),
           chaves: [
@@ -282,7 +290,7 @@ export default class Mapa extends React.Component {
         },
         {
           latitude: -22.120684,
-          longitude:  -51.408137,
+          longitude: -51.408137,
           nome: 'Laboratório 10 - Bloco 1',
           img: require('../../assets/imgs/locais/lab-10.png'),
           chaves: [
@@ -309,7 +317,7 @@ export default class Mapa extends React.Component {
             'arquitetura'
           ]
         },
-         {
+        {
           latitude: -22.127925,
           longitude: -51.413036,
           nome: 'Ópera Krios',
@@ -318,7 +326,7 @@ export default class Mapa extends React.Component {
             'OK',
             'empresa junior',
             'arquitetura'
-          ]        
+          ]
         },
         {
           latitude: -22.11979,
@@ -342,7 +350,7 @@ export default class Mapa extends React.Component {
         },
         {
           latitude: -22.123855,
-          longitude:  -51.410262,
+          longitude: -51.410262,
           nome: 'Restaurante Universitário',
           img: require('../../assets/imgs/locais/RU.png'),
           chaves: [
@@ -352,7 +360,7 @@ export default class Mapa extends React.Component {
         },
         {
           latitude: -22.120728,
-          longitude:  -51.408356,
+          longitude: -51.408356,
           nome: 'Sala do rato (Ateliê)',
           img: require('../../assets/imgs/locais/sala-do-rato.png'),
           chaves: [
@@ -388,60 +396,64 @@ export default class Mapa extends React.Component {
   }
 
   _mapReady = async (mapView) => {
-    await this._getPosition();
+    // await this._getPosition();
 
-    mapView.animateToCoordinate(this.state.my_position, 0);
+    // mapView.animateToRegion({
+    //   latitude: -22.121936,
+    //   longitude: -51.407952
+    // }, 0);
   };
 
-  _getPosition = () => {
-    return new Promise((resolve, reject) => {
+  // _getPosition = () => {
+  //   return new Promise((resolve, reject) => {
 
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          let my_position = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          };
+  //     navigator.geolocation.getCurrentPosition(
+  //       (position) => {
+  //         let my_position = {
+  //           latitude: parseFloat(position.coords.latitude) || -22.121936,
+  //           longitude: parseFloat(position.coords.longitude) || -51.407952,
+  //         };
 
-          this.setState({ my_position });
+  //         this.setState({ my_position });
 
-          resolve(my_position);
+  //         resolve(my_position);
 
-        },
-        (error) => {
-          this._getPosition();
-        },
-        { timeout: 10000, maximumAge: 0 }
-        // { enableHighAccuracy: true, timeout: 10000, maximumAge: 0}
-      );
-      
-    });
-  }
+  //       },
+  //       (error) => {
+  //         console.log(error);
+  //         this.setState({ my_position: false });
+  //       },
+  //       // { timeout: 10000, maximumAge: 0 }
+  //       { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+  //     );
+
+  //   });
+  // }
 
   render() {
     return (
       <View style={styles.container} >
         <Header style={{ backgroundColor: '#4a50c8' }} >
-            <Left>
-              <Button transparent >
-                <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
-              </Button>
-            </Left>
-            <Body>
-              <View style={styles.searchSection}>
-                <Icon style={styles.searchIcon} name="ios-search" size={20} color="white"/>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Pesquisar"
-                    value={this.state.filter}
-                    onChangeText={(filter) => { this.setState({ filter }); }}
-                    underlineColorAndroid="transparent"
-                />
-              </View>
-            </Body>
+          <Left>
+            <Button transparent >
+              <Icon name='menu' onPress={() => this.props.navigation.openDrawer()} />
+            </Button>
+          </Left>
+          <Right>
+            <View style={styles.searchSection}>
+              <Icon style={styles.searchIcon} name="ios-search" size={20} color="white" />
+              <TextInput
+                style={styles.input}
+                placeholder="Pesquisar"
+                value={this.state.filter}
+                onChangeText={(filter) => { this.setState({ filter }); }}
+                underlineColorAndroid="transparent"
+              />
+            </View>
+          </Right>
         </Header>
         <Map
-          filter={this.state.filter}   
+          filter={this.state.filter}
           rotate={false}
           places={this.state.places}
           onMapReady={this._mapReady}
@@ -469,16 +481,17 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   searchIcon: {
-      padding: 10,
+    padding: 10,
+    color: "white"
   },
   input: {
-      flex: 1,
-      paddingTop: 10,
-      paddingBottom: 10,
-      paddingRight: 10,
-      paddingLeft: 0,
-      backgroundColor: 'transparent',
-      color: 'white',
+    flex: 1,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingRight: 10,
+    paddingLeft: 0,
+    backgroundColor: 'transparent',
+    color: 'white',
   },
 });
 

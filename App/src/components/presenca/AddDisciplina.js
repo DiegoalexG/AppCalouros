@@ -109,7 +109,7 @@ export default class AddDisciplina extends React.Component {
                         style={{ justifyContent: 'space-around', width: '35%', borderRadius: 20, marginTop: 40, backgroundColor: '#E2747E' }} >
                         <Text style={{ color: 'white', fontWeight: 'bold', textAlign: 'center' }}>Fechar</Text>
                       </Button>  
-                    
+                      
                   </View>
                 </View>
         
@@ -151,8 +151,9 @@ export default class AddDisciplina extends React.Component {
               onPress={this.saveData}
               style={{ justifyContent: 'center', width: '92%', marginTop: 40 }} >
               <Text style={{ color: 'white', fontWeight: 'bold' }}>Confirmar</Text>
-            </Button>        
+            </Button> 
           </View>
+          <Text style={{ textAlign: 'center', fontSize: 18, paddingHorizontal: 10, fontWeight: 'bold', color: 'black', marginTop: 40 }}>As informações serão armazenadas apenas em seu smartphone!</Text>
         </Content>
 
       </Container>
